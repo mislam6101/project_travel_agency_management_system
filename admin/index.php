@@ -1,3 +1,11 @@
+<?php
+include_once('db_config.php');
+session_start();
+
+if(isset($_SESSION['email'])){
+  header('Location: dashboard.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,25 +45,33 @@
 </head>
 <body class="login-page sty1">
 <div class="login-box sty1">
+  <?php
+    
+    if(isset($_REQUEST['click'])){
+      extract($_REQUEST);
+      $pass = md5($pass);
+      $sql = "SELECT * FROM `admin` WHERE `email` = '$email' AND `confirm_pass` = '$pass'";
+      $record = $db->query($sql);
+      $row = $record->fetch_object();
+      if($record->num_rows > 0){
+        $_SESSION['name'] = $row->name;
+        $_SESSION['email'] = $row->email;
+        //$_SESSION['image'] = $row->image;
+
+        header('Location:dashboard.php');
+        
+      }
+      else{
+        echo '<div class="alert alert-danger">Incorrect email or password</div>';
+      }
+      $db->close();
+    }
+    ?>
   <div class="login-box-body sty1">
   <div class="login-logo">
     <a href="index.php"><img style="width: 100%;" src="dist/img/tod-logo-updated-V2.png" alt=""></a>
   </div>
     <p class="login-box-msg">Sign in to start your session</p>
-    <?php
-    
-    if(isset($_REQUEST['click'])){
-      extract($_REQUEST);
-      $pass = md5($pass);
-      include_once('db_config.php');
-      $sql = "SELECT * FROM `admin` WHERE `email` = '$email' AND `confirm_pass` = '$pass'";
-      $record = $db->query($sql);
-      if($record->num_rows > 0){
-        header('Location:dashboard.php');
-        $db->close();
-      }
-    }
-    ?>
     <form action="" method="post">
       <div class="form-group has-feedback">
         <input type="email" class="form-control sty1" name="email" placeholder="User">
@@ -76,7 +92,6 @@
           <form action="" method="post">
             <input type="submit" name="click" class="btn btn-primary btn-block btn-flat id=" value="Sign In">
           </form>
-          <!-- <button type="submit" name="click" class="btn btn-primary btn-block btn-flat">Sign In</button> -->
         </div>
         <!-- /.col --> 
       </div>
