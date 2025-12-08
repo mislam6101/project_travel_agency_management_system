@@ -66,14 +66,14 @@ include_once('db_config.php');
     <?php
     if(isset($_REQUEST['click'])){
       extract($_REQUEST);
-      $sql = "INSERT INTO gallery VALUES(NULL, 2, '$photo', '$details')";
+      $sql = "INSERT INTO gallery VALUES(NULL, '$photo', '$details')";
       $db->query($sql);
     }
     
     ?>
     <!-- Main content -->
     <div class="content">
-        <form action="" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data">
           <div class="col-lg-6 col-md-6">
           <div class="input-group">
             <div class="input-group-addon"><i class="fa fa-podcast"></i></div>

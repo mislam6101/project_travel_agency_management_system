@@ -12,10 +12,11 @@
       <!-- sidebar menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">PERSONAL</li>
-        <li class="active treeview">  <a href="dashboard.php"> <i class="icon-home"></i> <span>Dashboard</span></a>
+        <li><a href="dashboard.php"> <i class="icon-home"></i> <span>Dashboard</span></a></li>
 
-        <li class="treeview"> <a href="#"> <i class="icon-note"></i> <span>Uploads</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+        <li class="active treeview menu-open"> <a href="#"> <i class="icon-note"></i> <span>Uploads</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
           <ul class="treeview-menu">
+            <li><a href="packages.php"><i class="fa fa-angle-right"></i> Packages</a></li>
             <li><a href="gallery.php"><i class="fa fa-angle-right"></i> Gallery</a></li>
           </ul>
         </li>
