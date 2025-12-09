@@ -17,7 +17,9 @@
         <li class="active treeview menu-open"> <a href="#"> <i class="icon-note"></i> <span>Uploads</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
           <ul class="treeview-menu">
             <li><a href="packages.php"><i class="fa fa-angle-right"></i> Packages</a></li>
+            <li><a href="ressorts.php"><i class="fa fa-angle-right"></i> Ressorts</a></li>
             <li><a href="gallery.php"><i class="fa fa-angle-right"></i> Gallery</a></li>
+            <li><a href="blogs.php"><i class="fa fa-angle-right"></i> Blogs</a></li>
           </ul>
         </li>
          

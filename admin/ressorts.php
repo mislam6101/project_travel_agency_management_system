@@ -12,8 +12,7 @@ include_once('db_config.php');
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Travelars of Destination</title>
-  <!-- Tell the browser to be responsive to screen width -->
+    <title>Travelars of Destination</title>  <!-- Tell the browser to be responsive to screen width -->
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Biz Admin is a Multipurpose bootstrap 4 Based Dashboard & Admin Site Responsive Template by uxliner." />
@@ -58,17 +57,17 @@ include_once('db_config.php');
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <div class="content-header sty-two">
-        <h1 class="text-white">Tour Packages</h1>
+        <h1 class="text-white">Ressorts</h1>
         <ol class="breadcrumb">
           <li><a href="#">Home</a></li>
           <li><i class="fa fa-angle-right"></i> <a href="#">Uploads</a></li>
-          <li><i class="fa fa-angle-right"></i> Packages</li>
+          <li><i class="fa fa-angle-right"></i> Ressorts</li>
         </ol>
       </div>
 
       <!-- Main content -->
       <div class="content">
-        <h2>Upload Package Tours</h2>
+        <h2>Upload Ressort Details</h2>
         <div class="row">
           <div class="col-12">
             <div class="card">
@@ -80,16 +79,16 @@ include_once('db_config.php');
                   $tmp_name = $_FILES['photo']['tmp_name'];
                   $path =  "images/".$name ;
                   move_uploaded_file($tmp_name, $path);
-                  $sql = "INSERT INTO package VALUES (NULL, '$title', '$details', '$path', '$price', NULL)";
+                  $sql = "INSERT INTO ressorts VALUES (NULL, '$title', '$details', '$path', '$price', NULL)";
                   $record = $db->query($sql);
                   if($db->affected_rows){
-                    echo '<div class="alert alert-success text-center">Submitted Successfully</div>';
+                    echo '<div class="alert alert-success text-center">Successfully Submit</div>';
                   }
                 }
                 ?>
                 <div style="margin-top : 30px; padding-left : 20px; padding-right : 20px" class="input-group">
                   <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
-                  <input class="form-control" name="title" id="exampleInputuname" placeholder="Title" type="text">
+                  <input class="form-control" name="title" id="exampleInputuname" placeholder="Ressort's Nsme" type="text">
                 </div>
                 <br>
                 <div style="padding-left : 20px; padding-right : 20px" class="input-group">
@@ -98,13 +97,15 @@ include_once('db_config.php');
                 </div>
                 <br>
                 <div class="card-body">
-                  <textarea id="summernote" name="details"></textarea>
-                </div>
-                <div class="card-body">
-                  <h4 class="text-black">Upload your photo</h4>
+                  <h4 class="text-black">Upload Ressort's photo</h4>
                   <label for="input-file-now"></label>
                   <input type="file" name="photo" id="input-file-now" class="dropify" />
                 </div>
+                <br>
+                <div class="card-body">
+                  <textarea id="summernote" name="details" placeholder="Enter Ressorts Details"></textarea>
+                </div>
+                
                 <div class="text-right"><button style="margin-right : 25px; margin-bottom : 20px" class="btn btn-success" name="click" type="submit">UPLOAD</button></div>
               </form>
             </div>

@@ -11,7 +11,7 @@ include_once('db_config.php');
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Biz Admin - Multipurpose bootstrap 4 admin templates</title>
+<title>Travelars of Destination</title>
 <!-- Tell the browser to be responsive to screen width -->
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,11 +56,11 @@ include_once('db_config.php');
   <div class="content-wrapper"> 
     <!-- Content Header (Page header) -->
     <div class="content-header sty-two">
-      <h1 class="text-white">Upload Gallery</h1>
+      <h1 class="text-white">Gallery</h1>
       <ol class="breadcrumb">
         <li><a href="#">Home</a></li>
         <li><i class="fa fa-angle-right"></i> <a href="#">Uploads</a></li>
-        <li><i class="fa fa-angle-right"></i> Upload Gallery</li>
+        <li><i class="fa fa-angle-right"></i>Gallery</li>
       </ol>
     </div>
     <?php
@@ -68,7 +68,7 @@ include_once('db_config.php');
       extract($_REQUEST);
       $photo_name = $_FILES['photo']['name'];
       $photo_tmp_name = $_FILES['photo']['tmp_name'];
-      $photo_path = "images/".$photo_name;
+      $photo_path = "images/gallery/".$photo_name;
       move_uploaded_file($photo_tmp_name, $photo_path);
       $sql = "INSERT INTO gallery VALUES(NULL, '$photo_path', '$details', NULL)";
       $db->query($sql);
@@ -77,8 +77,10 @@ include_once('db_config.php');
     ?>
     <!-- Main content -->
     <div class="content">
+      
         <form action="" method="post" enctype="multipart/form-data">
           <div class="col-lg-6 col-md-6">
+          <h2>Upload the best pictures in tours</h2><br>
           <div class="input-group">
             <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
             <input class="form-control" name="details" id="exampleInputuname" placeholder="Details" type="text">
@@ -94,9 +96,9 @@ include_once('db_config.php');
               </div>
             </div>
           </div>
-          <br><br>
+          <br>
           <div class="col-lg-6 col-md-6">
-            <input type="submit" name="click" id="" value="Upload">
+            <div class="text-right"><button style="margin-right : 25px; margin-bottom : 20px" class="btn btn-success" name="click" type="submit">POST</button></div>
           </div>
         </form>
     </div>
