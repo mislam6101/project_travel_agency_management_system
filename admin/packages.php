@@ -74,7 +74,7 @@ include_once('db_config.php');
               <form action="" enctype="multipart/form-data" method="post">
                 <?php
                 if (isset($_REQUEST['click'])) {
-                  $dqata = extract($_REQUEST);
+                  extract($_REQUEST);
                   $name = $_FILES['photo']['name'];
                   $tmp_name = $_FILES['photo']['tmp_name'];
                   $path =  "images/".$name ;

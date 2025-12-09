@@ -66,7 +66,11 @@ include_once('db_config.php');
     <?php
     if(isset($_REQUEST['click'])){
       extract($_REQUEST);
-      $sql = "INSERT INTO gallery VALUES(NULL, '$photo', '$details')";
+      $photo_name = $_FILES['photo']['name'];
+      $photo_tmp_name = $_FILES['photo']['tmp_name'];
+      $photo_path = "images/".$photo_name;
+      move_uploaded_file($photo_tmp_name, $photo_path);
+      $sql = "INSERT INTO gallery VALUES(NULL, '$photo_path', '$details', NULL)";
       $db->query($sql);
     }
     
