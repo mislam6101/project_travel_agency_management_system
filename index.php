@@ -33,7 +33,7 @@
     <!-- Preloader Ends -->
 
     <!-- header starts -->
-    <?php include ("inc/header.php")?>
+    <?php include ("includes/header.php")?>
     <!-- header ends -->
 
     <!-- banner starts -->
@@ -722,7 +722,7 @@
     <!-- recent-articles ends -->
 
     <!-- footer starts -->
-    <?php include ('inc/footer.php')?>
+    <?php include ('includes/footer.php')?>
     <!-- footer ends -->
 
     <!-- Back to top start -->

@@ -75,10 +75,11 @@ include_once('db_config.php');
                 <?php
                 if (isset($_REQUEST['click'])) {
                   $dqata = extract($_REQUEST);
-                  $temp = $_FILES['photo']['tmp_name'];
                   $name = $_FILES['photo']['name'];
-                  $photo = $temp . '\\' . $name ;
-                  $sql = "INSERT INTO package VALUES (NULL, '$title', '$details', '$photo', '$price', NULL)";
+                  $tmp_name = $_FILES['photo']['tmp_name'];
+                  $path =  "images/".$name ;
+                  move_uploaded_file($tmp_name, $path);
+                  $sql = "INSERT INTO package VALUES (NULL, '$title', '$details', '$path', '$price', NULL)";
                   $record = $db->query($sql);
                   if($db->affected_rows){
                     echo '<div class="alert alert-success text-center">Submitted Successfully</div>';
