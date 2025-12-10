@@ -1,0 +1,301 @@
+<?php
+include_once('admin/db_config.php');
+session_start();
+?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zxx">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Travelin - Travel Tour Booking HTML Templates</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!--Custom CSS-->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <!--Plugin CSS-->
+    <link href="css/plugin.css" rel="stylesheet" type="text/css">
+
+    <!--Font Awesome-->
+    
+    <link rel="stylesheet" href="css/fontawesome.min.css" />
+
+    <link rel="stylesheet" href="fonts/line-icons.css" type="text/css">
+</head>
+
+    <!-- Preloader -->
+    
+    <!-- Preloader Ends -->
+
+    <!-- header starts -->
+    <?php include ("includes/header.php")?>
+    <!-- header ends -->
+
+    <!-- BreadCrumb Starts -->  
+    <section class="breadcrumb-main pb-20 pt-14" style="background-image: url(images/bg/bg1.jpg);">
+        <div class="section-shape section-shape1 top-inherit bottom-0" style="background-image: url(images/shape8.png);"></div>
+        <div class="breadcrumb-outer">
+            <div class="container">
+                <div class="breadcrumb-content text-center">
+                    <h1 class="mb-3">Tour Grid</h1>
+                    <nav aria-label="breadcrumb" class="d-block">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Tour Grid Leftside</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="dot-overlay"></div>
+    </section>
+    <!-- BreadCrumb Ends --> 
+
+    <!-- top Destination starts -->
+    <section class="trending pt-6 pb-0 bg-lgrey">
+        <div class="container">
+                    <div class="list-results d-flex align-items-center justify-content-between">
+                        <div class="list-results-sort">
+                            <p class="m-0">Showing 1-5 of 80 results</p>
+                        </div>
+                        <div class="click-menu d-flex align-items-center justify-content-between">
+                            <div class="change-list me-2"><a href="tour-list.html"><i class="fa fa-bars rounded"></i></a></div>
+                            <div class="change-grid f-active me-2"><a href="tour-grid.html"><i class="fa fa-th rounded"></i></a></div>
+                            <div class="sortby d-flex align-items-center justify-content-between ml-2">
+                                <select class="niceSelect">
+                                    <option value="1" >Sort By</option>
+                                    <option value="2">Average rating</option>
+                                    <option value="3">Price: low to high</option>
+                                    <option value="4">Price: high to low</option>
+                                </select> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <?php 
+                        $sql = "SELECT * FROM package";
+                        $rawData = $db->query($sql);
+                        while($row = $rawData->fetch_object()):
+                        ?>
+                        <div class="col-lg-4 col-md-4 mb-4">
+                            <div class="trend-item rounded box-shadow">
+                                <div class="trend-image position-relative">
+                                    <img src="admin/<?php echo $row->package_photo; ?>" alt="image" class="">
+                                    <div class="color-overlay"></div>
+                                </div>
+                                <div class="trend-content p-4 pt-5 position-relative">
+                                    <div class="trend-meta bg-theme white px-3 py-2 rounded">
+                                        <div class="entry-author">
+                                            <i class="icon-calendar"></i>
+                                            <span class="fw-bold"> <?php echo $row->time_length; ?> Days Tours</span>
+                                        </div>
+                                    </div>
+                                    <h5 class="theme mb-1"><i class="flaticon-location-pin"></i> <?php echo $row->country; ?></h5>
+                                    <h3 class="mb-1"><a href="tour-single.html"><?php echo $row->title; ?></a></h3>
+                                    <div class="rating-main d-flex align-items-center pb-2">
+                                        <div class="rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </div>
+                                        <span class="ms-2">(12)</span>
+                                    </div>
+                                    <p class=" border-b pb-2 mb-2"><?php echo $row->details; ?></p>
+                                    <div class="entry-meta">
+                                        <div class="entry-author d-flex align-items-center">
+                                            <p class="mb-0"><span class="theme fw-bold fs-5"> ৳<?php echo $row->price; ?></span> | Per person</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php 
+                        endwhile;
+                        $db->close();
+                        ?>
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <a href="#" class="nir-btn">Load More <i class="fa fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </section>
+    <!-- top Destination ends -->
+
+    <!-- Discount action starts -->
+    <section class="discount-action pt-0" style="background-image:url(images/section-bg1.png); background-position:center;">
+        <div class="container">
+            <div class="call-banner rounded pt-10 pb-14">
+                <div class="call-banner-inner w-75 mx-auto text-center px-5">
+                    <div class="trend-content-main">
+                        <div class="trend-content mb-5 pb-2 px-5">
+                            <h5 class="mb-1 theme">Love Where Your're Going</h5>
+                            <h2><a href="detail-fullwidth.html">Explore Your Life, <span class="theme1"> Travel Where You Want!</span></a></h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                        <div class="video-button text-center position-relative">
+                             <div class="call-button text-center">
+                                <button type="button" class="play-btn js-video-button" data-video-id="152879427" data-channel="vimeo">
+                                    <i class="fa fa-play bg-blue"></i>
+                                </button>
+                            </div>
+                            <div class="video-figure"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+        </div>    
+        <div class="white-overlay"></div>
+        <div class="white-overlay"></div>
+        <div class="section-shape  top-inherit bottom-0" style="background-image: url(images/shape6.png);"></div>
+    </section>
+    <!-- Discount action Ends -->
+
+    
+
+    <!-- footer starts -->
+    <?php include ("includes/footer.php")?>
+    <!-- footer ends -->
+    
+    <!-- Back to top start -->
+    <div id="back-to-top">
+        <a href="#"></a>
+    </div>
+    <!-- Back to top ends -->
+
+    <!-- search popup -->
+    <div id="search1">
+        <button type="button" class="close">×</button>
+        <form>
+            <input type="search" value="" placeholder="type keyword(s) here" />
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+
+    <!-- login registration modal -->
+    <div class="modal fade log-reg" id="exampleModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="post-tabs">
+                <!-- tab navs -->
+                <ul class="nav nav-tabs nav-pills nav-fill" id="postsTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button aria-controls="login" aria-selected="false" class="nav-link active" data-bs-target="#login" data-bs-toggle="tab" id="login-tab" role="tab" type="button">Login</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button aria-controls="register" aria-selected="true" class="nav-link" data-bs-target="#register" data-bs-toggle="tab" id="register-tab" role="tab" type="button">Register</button>
+                    </li>
+                </ul>
+                <!-- tab contents -->
+                <div class="tab-content blog-full" id="postsTabContent">
+                    <!-- popular posts -->
+                    <div aria-labelledby="login-tab" class="tab-pane fade active show" id="login" role="tabpanel">
+                        <div class="row">
+                            <div class="col-lg-6">
+                               <div class="blog-image rounded">
+                                    <a href="#" style="background-image: url(images/trending/trending5.jpg);"></a>
+                                </div> 
+                            </div>
+                            <div class="col-lg-6">
+                                <h4 class="text-center border-b pb-2">Login</h4>
+                                <div class="log-reg-button d-flex align-items-center justify-content-between">
+                                    <button type="submit" class="btn btn-fb">
+                                        <i class="fab fa-facebook"></i> Login with Facebook
+                                    </button>
+                                    <button type="submit" class="btn btn-google">
+                                        <i class="fab fa-google"></i> Login with Google
+                                    </button>
+                                </div>
+                                <hr class="log-reg-hr position-relative my-4 overflow-visible">
+                                <form method="post" action="#" name="contactform" id="contactform">
+                                    <div class="form-group mb-2">
+                                        <input type="text" name="user_name" class="form-control" id="fname" placeholder="User Name or Email Address">
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <input type="password" name="password_name" class="form-control" id="lpass" placeholder="Password">
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <input type="checkbox" class="custom-control-input" id="exampleCheck">
+                                        <label class="custom-control-label mb-0" for="exampleCheck1">Remember me</label>
+                                        <a class="float-end" href="#">Lost your password?</a>
+                                    </div>
+                                    <div class="comment-btn mb-2 pb-2 text-center border-b">
+                                        <input type="submit" class="nir-btn w-100" id="submit" value="Login">
+                                    </div>
+                                    <p class="text-center">Don't have an account? <a href="#" class="theme">Register</a></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Recent posts -->
+                    <div aria-labelledby="register-tab" class="tab-pane fade" id="register" role="tabpanel">
+                        <div class="row">
+                            <div class="col-lg-6">
+                               <div class="blog-image rounded">
+                                    <a href="#" style="background-image: url(images/trending/trending5.jpg);"></a>
+                                </div> 
+                            </div>
+                            <div class="col-lg-6">
+                                <h4 class="text-center border-b pb-2">Register</h4>
+                                <div class="log-reg-button d-flex align-items-center justify-content-between">
+                                    <button type="submit" class="btn btn-fb">
+                                        <i class="fab fa-facebook"></i> Login with Facebook
+                                    </button>
+                                    <button type="submit" class="btn btn-google">
+                                        <i class="fab fa-google"></i> Login with Google
+                                    </button>
+                                </div>
+                                <hr class="log-reg-hr position-relative my-4 overflow-visible">
+                                <form method="post" action="#" name="contactform1" id="contactform1">
+                                    <div class="form-group mb-2">
+                                        <input type="text" name="user_name" class="form-control" id="fname1" placeholder="User Name">
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <input type="text" name="user_name" class="form-control" id="femail" placeholder="Email Address">
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <input type="password" name="password_name" class="form-control" id="lpass1" placeholder="Password">
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <input type="password" name="password_name" class="form-control" id="lrepass" placeholder="Re-enter Password">
+                                    </div>
+                                    <div class="form-group mb-2 d-flex">
+                                        <input type="checkbox" class="custom-control-input" id="exampleCheck1">
+                                        <label class="custom-control-label mb-0 ms-1 lh-1" for="exampleCheck1">I have read and accept the Terms and Privacy Policy?</label>
+                                    </div>
+                                    <div class="comment-btn mb-2 pb-2 text-center border-b">
+                                        <input type="submit" class="nir-btn w-100" id="submit1" value="Register">
+                                    </div>
+                                    <p class="text-center">Already have an account? <a href="#" class="theme">Login</a></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- *Scripts* -->
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/fontawesome.min.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/particlerun.js"></script>
+    <script src="js/plugin.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/custom-swiper.js"></script>
+    <script src="js/custom-nav.js"></script>
+</body>
+</html>

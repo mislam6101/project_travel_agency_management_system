@@ -22,6 +22,11 @@
             <li><a href="blogs.php"><i class="fa fa-angle-right"></i> Blogs</a></li>
           </ul>
         </li>
+        <li class="active treeview menu-open"> <a href="#"> <i class="icon-note"></i> <span>List</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+          <ul class="treeview-menu">
+            <li><a href="running_packages.php"><i class="fa fa-angle-right"></i> Packages</a></li>
+          </ul>
+        </li>
          
         </ul>
     </div>

@@ -16,7 +16,7 @@
 
                   <li> <a href="index.php">Home </a> | </li>
 
-                  <li><a href="about.html">Tours</a> |</li>
+                  <li><a href="tour_packages.php">Tours</a> |</li>
 
                   <li><a href="about.html">Ressorts</a> |</li>
                   
@@ -27,7 +27,7 @@
                   <li><a href="about.html">Blogs</a></li>
                   
                 </ul>
-                <a href="#" class="nir-btn px-3 py-1 ms-3">Login / SignUp</a>
+                <a href="login.php" class="nir-btn px-3 py-1 ms-3">Login / SignUp</a>
               </div>
               <!-- /.navbar-collapse -->
 

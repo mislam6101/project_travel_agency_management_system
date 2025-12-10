@@ -45,7 +45,7 @@
     if(isset($_REQUEST['click'])){
       extract($_REQUEST);
       include_once('db_config.php');
-      $sql = "INSERT INTO `admin` VALUES(NULL, '$name', '$email', '$pass', '$conf_pass')";
+      $sql = "INSERT INTO `admin` VALUES(NULL, '$name', '$email', '$pass')";
       $db->query($sql);
       $db->close();
     }

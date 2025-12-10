@@ -50,7 +50,7 @@ if(isset($_SESSION['email'])){
     if(isset($_REQUEST['click'])){
       extract($_REQUEST);
       $pass = md5($pass);
-      $sql = "SELECT * FROM `admin` WHERE `email` = '$email' AND `confirm_pass` = '$pass'";
+      $sql = "SELECT * FROM `admin` WHERE `email` = '$email' AND `create_pass` = '$pass'";
       $record = $db->query($sql);
       $row = $record->fetch_object();
       if($record->num_rows > 0){

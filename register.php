@@ -63,12 +63,12 @@ include_once('admin/db_config.php');
                     if (isset($_REQUEST['click'])) {
                         extract($_REQUEST);
 
-                        // if($password == $repassword){
+                        if($password == $repassword){
+                            $password = md5($password);
                         $nid_file_name = $_FILES['nid_copy']['name'];
                         $nid_tmp_name = $_FILES['nid_copy']['tmp_name'];
                         $nid_copy_path = "admin/images/clients_nid/" . $nid_file_name;
                         move_uploaded_file($nid_tmp_name, $nid_copy_path);
-                        echo "INSERT INTO clients VALUES (NULL, '$name', '$nid', '$nid_copy_path', '$email', '$password', NULL)";
                         $sql = "INSERT INTO clients VALUES (NULL, '$name', '$nid', '$nid_copy_path', '$email', '$password', NULL)";
                         $db->query($sql);
                         if ($db->affected_rows) {
@@ -76,10 +76,10 @@ include_once('admin/db_config.php');
                         } else {
                             echo '<div class="alert alert-danger text-center">Registration Incomplete</div>';
                         }
-                        // }
-                        // else{
-                        //     echo '<div class="alert alert-danger text-center">Retype Your Passwords</div>';
-                        // }
+                        }
+                        else{
+                            echo '<div class="alert alert-danger text-center">Retype Your Passwords</div>';
+                        }
                     }
                     ?>
                     <form method="post" action="" enctype="multipart/form-data">
@@ -93,13 +93,13 @@ include_once('admin/db_config.php');
                             <input type="file" name="nid_copy" class="form-control">
                         </div>
                         <div class="form-group mb-2">
-                            <input type="text" name="email" class="form-control" id="email1" placeholder="Email Address">
+                            <input type="email" name="email" class="form-control" id="email1" placeholder="Email Address">
                         </div>
                         <div class="form-group mb-2">
-                            <input type="text" name="password" class="form-control" id="password1" placeholder="Password">
+                            <input type="password" name="password" class="form-control" id="password1" placeholder="Password">
                         </div>
                         <div class="form-group mb-2">
-                            <input type="text" name="repassword" class="form-control" id="repassword" placeholder="Re-enter Password">
+                            <input type="password" name="repassword" class="form-control" id="repassword" placeholder="Re-enter Password">
                         </div>
                         <div class="form-group mb-2 d-flex">
                             <input type="checkbox" class="custom-control-input" id="exampleCheck">

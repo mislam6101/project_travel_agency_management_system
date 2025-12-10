@@ -1,10 +1,11 @@
+<?php include_once ('admin/db_config.php') ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zxx">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Travelin - Travel Tour Booking HTML Templates</title>
+    <title>Travelars of Destination - TOD</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
     <!-- Bootstrap core CSS -->
@@ -43,6 +44,10 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="slide-inner">
+                <?php
+                
+                
+                ?>
                 <div class="slide-image" style="background-image: url(images/slider/6.jpg)"></div>
 
                 <div class="soft-overlay"></div>

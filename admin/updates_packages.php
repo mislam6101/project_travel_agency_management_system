@@ -1,4 +1,5 @@
 <?php
+$id = $_REQUEST['id'];
 include_once('db_config.php');
 // session_start();
 
@@ -61,14 +62,19 @@ include_once('db_config.php');
         <h1 class="text-white">Tour Packages</h1>
         <ol class="breadcrumb">
           <li><a href="#">Home</a></li>
-          <li><i class="fa fa-angle-right"></i> <a href="#">Uploads</a></li>
-          <li><i class="fa fa-angle-right"></i> Packages</li>
+          <li><i class="fa fa-angle-right"></i> <a href="#">Update</a></li>
+          <li><i class="fa fa-angle-right"></i>Update Packages</li>
         </ol>
       </div>
 
       <!-- Main content -->
       <div class="content">
-        <h2>Upload Package Tours</h2>
+        <h2>
+             <?php
+                $sql = "SELECT * FROM package WHERE package.id = '$id'";
+                $record = $db->query($sql);
+                $row = $record->fetch_object();
+                echo $row->title . ", ". $row->country; ?> Package</h2>
         <div class="row">
           <div class="col-12">
             <div class="card">
@@ -80,27 +86,22 @@ include_once('db_config.php');
                   $tmp_name = $_FILES['photo']['tmp_name'];
                   $path =  "images/".$name ;
                   move_uploaded_file($tmp_name, $path);
-                  $sql = "INSERT INTO package VALUES (NULL,'$time_length', '$country', '$title', '$details', '$path', '$price', NULL)";
+                  $sql = "UPDATE package SET time_length = '$time_length', price = '$price', details = '$details', package_photo = '$path' WHERE package.id = '$id'";
                   $record = $db->query($sql);
                   if($db->affected_rows){
-                    echo '<div class="alert alert-success text-center">Submitted Successfully</div>';
+                    echo '<div class="alert alert-success text-center">Update Successfully</div>';
+                  }
+                  else{
+                    echo '<div class="alert alert-danger text-center">Update Decliened</div>';
                   }
                 }
                 $db->close();
                 ?>
                 <div style="margin-top : 30px; padding-left : 20px; padding-right : 20px" class="input-group">
-                  <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
-                  <input class="form-control" name="title" id="exampleInputuname" placeholder="Title" type="text">
-                </div>
-                <br>
+                  
                   <div style="padding-left : 20px; padding-right : 20px" class="input-group">
                   <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
                   <input class="form-control" name="time_length" placeholder="Tour Days" type="text">
-                </div>
-                <br>
-                <div style="padding-left : 20px; padding-right : 20px" class="input-group">
-                  <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
-                  <input class="form-control" name="country" placeholder="Country" type="text">
                 </div>
                 <br>
                 <div style="padding-left : 20px; padding-right : 20px" class="input-group">

@@ -1,3 +1,7 @@
+<?php
+include_once('admin/db_config.php');
+session_start();
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zxx">
 
@@ -50,16 +54,38 @@
     <!-- login section starts -->
     <section class="login-register pt-6 pb-6">
         <div class="container">
+            <?php
+    
+            if(isset($_REQUEST['click'])){
+            extract($_REQUEST);
+            $password = md5($password);
+            $sql = "SELECT * FROM `clients` WHERE `email` = '$email' AND `create_pass` = '$password'";
+            $record = $db->query($sql);
+            $row = $record->fetch_object();
+            if($record->num_rows > 0){
+                $_SESSION['name'] = $row->name;
+                $_SESSION['email'] = $row->email;
+                //$_SESSION['image'] = $row->image;
+
+                header('Location:index.php');
+                
+            }
+            else{
+                echo '<div class="alert alert-danger">Incorrect email or password</div>';
+            }
+            $db->close();
+            }
+            ?>
             <div class="log-main blog-full log-reg w-75 mx-auto">
                 <div class="row">
                     <div>
                         <h3 class="text-center border-b pb-2">Login</h3>
-                        <form method="post" action="#" name="contactform" id="contactform3">
+                        <form method="post" action="" id="contactform3">
                             <div class="form-group mb-2">
-                                <input type="text" name="user_name" class="form-control" id="fullname" placeholder="User Name or Email Address">
+                                <input type="email" name="email" class="form-control" id="fullname" placeholder="Email Address">
                             </div>
                             <div class="form-group mb-2">
-                                <input type="password" name="password_name" class="form-control" id="password" placeholder="Password">
+                                <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                             </div>
                             <div class="form-group mb-2">
                                 <input type="checkbox" class="custom-control-input" id="exampleCheck3">
@@ -67,7 +93,7 @@
                                 <a class="float-end" href="#">Lost your password?</a>
                             </div>
                             <div class="comment-btn mb-2 pb-2 text-center border-b">
-                                <input type="submit" class="nir-btn" id="submit1" value="Login">
+                                <input type="submit" name="click" class="nir-btn" id="submit1" value="Login">
                             </div>
                             <p class="text-center">Don't have an account? <a href="register.php" class="theme">Register</a></p>
                         </form>
@@ -101,67 +127,6 @@
     <!-- search popup -->
     
     <!-- login registration modal -->
-    <div class="modal fade log-reg" id="exampleModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div class="post-tabs">
-                <!-- tab navs -->
-                <ul class="nav nav-tabs nav-pills nav-fill" id="postsTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button aria-controls="login" aria-selected="false" class="nav-link active" data-bs-target="#login" data-bs-toggle="tab" id="login-tab" role="tab" type="button">Login</button>
-                    </li>
-                    
-                </ul>
-                <!-- tab contents -->
-                <div class="tab-content blog-full" id="postsTabContent">
-                    <!-- popular posts -->
-                    <div aria-labelledby="login-tab" class="tab-pane fade active show" id="login" role="tabpanel">
-                        <div class="row">
-                            <div>
-                               <div class="blog-image rounded">
-                                    <a href="#" style="background-image: url(images/trending/trending5.jpg);"></a>
-                                </div> 
-                            </div>
-                            <div>
-                                <h4 class="text-center border-b pb-2">Login</h4>
-                                <div class="log-reg-button d-flex align-items-center justify-content-between">
-                                    <button type="submit" class="btn btn-fb">
-                                        <i class="fab fa-facebook"></i> Login with Facebook
-                                    </button>
-                                    <button type="submit" class="btn btn-google">
-                                        <i class="fab fa-google"></i> Login with Google
-                                    </button>
-                                </div>
-                                <hr class="log-reg-hr position-relative my-4 overflow-visible">
-                                <form method="post" action="#" name="contactform" id="contactform">
-                                    <div class="form-group mb-2">
-                                        <input type="text" name="user_name" class="form-control" id="fname" placeholder="User Name or Email Address">
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <input type="password" name="password_name" class="form-control" id="lpass" placeholder="Password">
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <input type="checkbox" class="custom-control-input" id="exampleCheck1">
-                                        <label class="custom-control-label mb-0" for="exampleCheck1">Remember me</label>
-                                        <a class="float-end" href="#">Lost your password?</a>
-                                    </div>
-                                    <div class="comment-btn mb-2 pb-2 text-center border-b">
-                                        <input type="submit" class="nir-btn w-100" id="submit" value="Login">
-                                    </div>
-                                    <p class="text-center">Don't have an account? <a href="register.php" class="theme">Register</a></p>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Recent posts -->
-                    
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
 
     <!-- *Scripts* -->
@@ -171,7 +136,7 @@
     <script src="js/particles.js"></script>
     <script src="js/particlerun.js"></script>
     <script src="js/plugin.js"></script>
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
     <script src="js/custom-nav.js"></script>
 </body>
 </html>

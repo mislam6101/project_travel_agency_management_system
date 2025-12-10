@@ -85,6 +85,7 @@ include_once('db_config.php');
                     echo '<div class="alert alert-success text-center">Successfully Submit</div>';
                   }
                 }
+                $db->close();
                 ?>
                 <div style="margin-top : 30px; padding-left : 20px; padding-right : 20px" class="input-group">
                   <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
