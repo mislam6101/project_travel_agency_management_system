@@ -60,10 +60,8 @@ include_once('admin/db_config.php');
                 <div>
                     <h3 class="text-center border-b pb-2">Register</h3>
                     <?php
-                    print_r($_REQUEST);
                     if (isset($_REQUEST['click'])) {
                         extract($_REQUEST);
-                        print_r($_REQUEST);
 
                         // if($password == $repassword){
                         $nid_file_name = $_FILES['nid_copy']['name'];
@@ -146,7 +144,7 @@ include_once('admin/db_config.php');
 <script src="js/particles.js"></script>
 <script src="js/particlerun.js"></script>
 <script src="js/plugin.js"></script>
-<script src="js/main.js"></script>
+<!-- <script src="js/main.js"></script> -->
 <script src="js/custom-nav.js"></script>
 </body>
 
