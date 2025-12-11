@@ -101,7 +101,7 @@ include_once('db_config.php');
                   
                   <div style="padding-left : 20px; padding-right : 20px" class="input-group">
                   <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
-                  <input class="form-control" name="time_length" placeholder="Tour Days" type="text">
+                  <input class="form-control" name="time_length" placeholder="Tour Days" type="text" value="">
                 </div>
                 <br>
                 <div style="padding-left : 20px; padding-right : 20px" class="input-group">

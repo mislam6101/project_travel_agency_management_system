@@ -78,7 +78,7 @@ include_once('db_config.php');
                   extract($_REQUEST);
                   $name = $_FILES['photo']['name'];
                   $tmp_name = $_FILES['photo']['tmp_name'];
-                  $path =  "images/".$name ;
+                  $path = "images/".$name ;
                   move_uploaded_file($tmp_name, $path);
                   $sql = "INSERT INTO package VALUES (NULL,'$time_length', '$country', '$title', '$details', '$path', '$price', NULL)";
                   $record = $db->query($sql);

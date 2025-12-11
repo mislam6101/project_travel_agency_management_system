@@ -32,7 +32,7 @@ session_start();
     <!-- Preloader Ends -->
 
     <!-- header starts -->
-    <?php include ("includes/header.php")?>
+     <?php include ("includes/header.php")?>
     <!-- header ends -->
 
     <!-- BreadCrumb Starts -->  
@@ -41,11 +41,11 @@ session_start();
         <div class="breadcrumb-outer">
             <div class="container">
                 <div class="breadcrumb-content text-center">
-                    <h1 class="mb-3">Tour Grid</h1>
+                    <h1 class="mb-3">Tour List</h1>
                     <nav aria-label="breadcrumb" class="d-block">
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Tour Grid Leftside</li>
+                            <li class="breadcrumb-item active" aria-current="page">Tour Lists Fullwidth</li>
                         </ul>
                     </nav>
                 </div>
@@ -58,73 +58,74 @@ session_start();
     <!-- top Destination starts -->
     <section class="trending pt-6 pb-0 bg-lgrey">
         <div class="container">
-                    <div class="list-results d-flex align-items-center justify-content-between">
-                        <div class="list-results-sort">
-                            <p class="m-0">Showing 1-5 of 80 results</p>
-                        </div>
-                        <div class="click-menu d-flex align-items-center justify-content-between">
-                            <div class="change-list me-2"><a href="tour-list.html"><i class="fa fa-bars rounded"></i></a></div>
-                            <div class="change-grid f-active me-2"><a href="tour-grid.html"><i class="fa fa-th rounded"></i></a></div>
-                            <div class="sortby d-flex align-items-center justify-content-between ml-2">
-                                <select class="niceSelect">
-                                    <option value="1" >Sort By</option>
-                                    <option value="2">Average rating</option>
-                                    <option value="3">Price: low to high</option>
-                                    <option value="4">Price: high to low</option>
-                                </select> 
-                            </div>
-                        </div>
+            <div class="list-results d-flex align-items-center justify-content-between">
+                <div class="list-results-sort">
+                    <p class="m-0">Showing 1-5 of 80 results</p>
+                </div>
+                <div class="click-menu d-flex align-items-center justify-content-between">
+                    <div class="change-list f-active me-2"><a href="tour-list.html"><i class="fa fa-bars rounded"></i></a></div>
+                    <div class="change-grid me-2"><a href="tour-grid.html"><i class="fa fa-th rounded"></i></a></div>
+                    <div class="sortby d-flex align-items-center justify-content-between ml-2">
+                        <select class="niceSelect">
+                            <option value="1" >Sort By</option>
+                            <option value="2">Average rating</option>
+                            <option value="3">Price: low to high</option>
+                            <option value="4">Price: high to low</option>
+                        </select> 
                     </div>
+                </div>
+            </div>
+
+            <div class="destination-list">
+                <?php 
+                $sql = "SELECT * FROM package ORDER BY id DESC";
+                $rawData = $db->query($sql);
+                while($row = $rawData->fetch_object()):
+                ?>
+                <div class="trend-full bg-white rounded box-shadow overflow-hidden p-4 mb-4">
                     <div class="row">
-                        <?php 
-                        $sql = "SELECT * FROM package";
-                        $rawData = $db->query($sql);
-                        while($row = $rawData->fetch_object()):
-                        ?>
-                        <div class="col-lg-4 col-md-4 mb-4">
-                            <div class="trend-item rounded box-shadow">
-                                <div class="trend-image position-relative">
-                                    <img src="admin/<?php echo $row->package_photo; ?>" alt="image" class="">
-                                    <div class="color-overlay"></div>
-                                </div>
-                                <div class="trend-content p-4 pt-5 position-relative">
-                                    <div class="trend-meta bg-theme white px-3 py-2 rounded">
-                                        <div class="entry-author">
-                                            <i class="icon-calendar"></i>
-                                            <span class="fw-bold"> <?php echo $row->time_length; ?> Days Tours</span>
-                                        </div>
-                                    </div>
-                                    <h5 class="theme mb-1"><i class="flaticon-location-pin"></i> <?php echo $row->country; ?></h5>
-                                    <h3 class="mb-1"><a href="tour-single.html"><?php echo $row->title; ?></a></h3>
-                                    <div class="rating-main d-flex align-items-center pb-2">
-                                        <div class="rating">
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                        </div>
-                                        <span class="ms-2">(12)</span>
-                                    </div>
-                                    <p class=" border-b pb-2 mb-2"><?php echo $row->details; ?></p>
-                                    <div class="entry-meta">
-                                        <div class="entry-author d-flex align-items-center">
-                                            <p class="mb-0"><span class="theme fw-bold fs-5"> ৳<?php echo $row->price; ?></span> | Per person</p>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="col-lg-4 col-md-3">
+                           <div class="trend-item2 rounded">
+                                <a href="tour-single.html" style="background-image: url(admin/<?php echo $row->package_photo; ?>);"></a>
+                                 <div class="color-overlay"></div>
+                            </div> 
+                        </div>
+                        <div class="col-lg-5 col-md-6">
+                            <div class="trend-content position-relative text-md-start text-center">
+                                <small><?php echo $row->time_length; ?></small>
+                                <h3 class="mb-1"><a href="tour-single.html"><?php echo $row->title; ?></a></h3>
+                                <h6 class="theme mb-0"><i class="icon-location-pin"></i><?php echo $row->country; ?></h6>
+                                <p class="mt-4 mb-0"><?php echo $row->details; ?></p>
                             </div>
                         </div>
-                        <?php 
-                        endwhile;
-                        $db->close();
-                        ?>
-                        <div class="col-lg-12">
-                            <div class="text-center">
-                                <a href="#" class="nir-btn">Load More <i class="fa fa-long-arrow-alt-right"></i></a>
+                        <div class="col-lg-3 col-md-3">
+                            <div class="trend-content text-md-end text-center">
+                                <div class="rating">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                </div>
+                                <small>200 Reviews</small>
+                                <div class="trend-price my-2">
+                                    <span class="mb-0">From</span>
+                                    <h3 class="mb-0"> ৳<?php echo $row->price; ?></h3>
+                                    <small>Per Adult</small>
+                                </div>
+                                <a href="tour-single.html" class="nir-btn">View Detail</a>
                             </div>
                         </div>
                     </div>
+                </div>
+                <?php 
+                endwhile;
+                $db->close();
+                ?>
+                <div class="text-center">
+                    <a href="#" class="nir-btn">Load More <i class="fa fa-long-arrow-alt-right"></i></a>
+                </div>
+            </div>
         </div>
     </section>
     <!-- top Destination ends -->
@@ -158,10 +159,52 @@ session_start();
     </section>
     <!-- Discount action Ends -->
 
-    
+    <!-- partner starts -->
+    <section class="our-partner pb-6 pt-6">
+        <div class="container">
+            <div class="section-title mb-6 w-75 mx-auto text-center">
+                <h4 class="mb-1 theme1">Our Partners</h4>
+                <h2 class="mb-1">Our Awesome <span class="theme">partners</span></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+            <div class="row align-items-center partner-in partner-slider">
+                <div class="col-md-3 col-sm-6">
+                    <div class="partner-item p-4 py-2 rounded bg-lgrey">
+                        <img src="images/cl-1.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="partner-item p-4 py-2 rounded bg-lgrey">
+                        <img src="images/cl-5.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="partner-item p-4 py-2 rounded bg-lgrey">
+                        <img src="images/cl-2.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="partner-item p-4 py-2 rounded bg-lgrey">
+                        <img src="images/cl-3.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="partner-item p-4 py-2 rounded bg-lgrey">
+                        <img src="images/cl-4.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="partner-item p-4 py-2 rounded bg-lgrey">
+                        <img src="images/cl-5.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- partner ends -->
 
     <!-- footer starts -->
-    <?php include ("includes/footer.php")?>
+     <?php include ("includes/footer.php")?>
     <!-- footer ends -->
     
     <!-- Back to top start -->
