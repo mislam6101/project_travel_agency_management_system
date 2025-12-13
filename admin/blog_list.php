@@ -53,7 +53,7 @@ include_once('db_config.php');
   <div class="content-wrapper"> 
     <!-- Content Header (Page header) -->
     <div class="content-header sty-one">
-      <h1>Table Layouts</h1>
+      <h1>Blog List</h1>
       <ol class="breadcrumb">
         <li><a href="#">Home</a></li>
         <li><i class="fa fa-angle-right"></i> <a href="#">Tables</a></li>
@@ -65,32 +65,30 @@ include_once('db_config.php');
     <div class="content">
       <div class="card">
       <div class="card-body">
-            <h4 class="text-black">Package Table</h4></p>
+            <h4 class="text-black">Blog List</h4></p>
             <div class="table-responsive">
               <table class="table">
                 <thead class="bg-primary text-white">
                   <tr>
-                    <th scope="col">Country</th>
+                    <th scope="col">Catagory</th>
                     <th scope="col">Title</th>
-                    <th scope="col">Time Length</th>
-                    <th scope="col">Cost</th>
-                    <th scope="col">Last Updated Time</th>
+                    <th scope="col">Body</th>
+                    <th scope="col">Date</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php 
-                  $sql = "SELECT * FROM package ORDER BY id DESC";
+                  $sql = "SELECT * FROM blogs ORDER BY id DESC";
                   $rawData = $db->query($sql);
                   while($row = $rawData->fetch_object()): 
                   ?>
                   <tr>
-                    <td><?php echo $row->country; ?></td>
+                    <td><?php echo $row->catagory; ?></td>
                     <td><?php echo $row->title; ?></td>
-                    <td><?php echo $row->time_length; ?></td>
-                    <td>৳<?php echo $row->price; ?></td>
-                    <td><?php echo $row->created_at; ?></td>
-                    <td><a href="updates_packages.php?id=<?php echo $row->id; ?>"><i class="fa fa-edit"></i></a>&nbsp&nbsp|&nbsp&nbsp<a href="package_delete.php?id=<?php echo $row->id; ?>"><i class="fa fa-trash-o"></i></a></td>
+                    <td><?php echo $row->body; ?></td>
+                    <td><?php echo $row->blog_date; ?></td>
+                    <td><a href="blog_delete.php?id=<?php echo $row->id; ?>">&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-trash-o"></i></a></td>
                   </tr>
                    <?php 
                   endwhile;

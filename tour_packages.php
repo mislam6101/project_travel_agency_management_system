@@ -84,7 +84,7 @@ session_start();
                 <div class="col-lg-4 col-md-4 mb-4">
                     <div class="trend-item rounded box-shadow">
                         <div class="trend-image position-relative">
-                            <img src="admin/<?php echo $row->package_photo; ?>" alt="image" class="">
+                            <img style="width : 100%; height : 230px" src="admin/<?php echo $row->package_photo; ?>" alt="image" class="">
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
@@ -109,7 +109,7 @@ session_start();
                             <p class=" border-b pb-2 mb-2"><?php echo $row->details; ?></p>
                             <div class="entry-meta">
                                 <div class="entry-author d-flex align-items-center">
-                                    <p class="mb-0"><span class="theme fw-bold fs-5"> ৳<?php echo $row->price; ?></span> | Per person</p>
+                                    <p class="mb-0"><span class="theme fw-bold fs-5"><?php echo $row->price; ?>৳</span> | Per person</p>
                                 </div>
                             </div>
                         </div>

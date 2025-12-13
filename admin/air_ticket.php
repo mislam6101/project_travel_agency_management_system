@@ -58,17 +58,17 @@ include_once('db_config.php');
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <div class="content-header sty-two">
-        <h1 class="text-white">Blogs</h1>
+        <h1 class="text-white">Tour Packages</h1>
         <ol class="breadcrumb">
           <li><a href="#">Home</a></li>
           <li><i class="fa fa-angle-right"></i> <a href="#">Uploads</a></li>
-          <li><i class="fa fa-angle-right"></i> Blogs</li>
+          <li><i class="fa fa-angle-right"></i> Packages</li>
         </ol>
       </div>
-    
+
       <!-- Main content -->
       <div class="content">
-        <h2>Upload Blogs</h2>
+        <h2>Upload Package Tours</h2>
         <div class="row">
           <div class="col-12">
             <div class="card">
@@ -76,32 +76,80 @@ include_once('db_config.php');
                 <?php
                 if (isset($_REQUEST['click'])) {
                   extract($_REQUEST);
-                  $name = $_FILES['photo']['name'];
-                  $tmp_name = $_FILES['photo']['tmp_name'];
-                  $path =  "images/".$name ;
-                  move_uploaded_file($tmp_name, $path);
-                  $sql = "INSERT INTO blogs VALUES (NULL, '$title', '$body', '$path', NULL)";
+                  $name = $_FILES['airline_logo']['name'];
+                  $tmp_name = $_FILES['airline_logo']['tmp_name'];
+                  $airlines_logo = "images/airlines_logo/".$name ;
+                  move_uploaded_file($tmp_name, $airlines_logo);
+                  $sql = "INSERT INTO air_ticket VALUES (NULL, '$airlines', '$airlines_logo', '$seat_status', '$details', '$from', '$to', '$dep', '$d_time', '$a_time', '$transit', '$d_airport_code', '$price', NULL)";
                   $record = $db->query($sql);
                   if($db->affected_rows){
-                    echo '<div class="alert alert-success text-center">Blog Uploaded</div>';
+                    echo '<div class="alert alert-success text-center">Submitted Successfully</div>';
                   }
                 }
+                $db->close();
                 ?>
                 <div style="margin-top : 30px; padding-left : 20px; padding-right : 20px" class="input-group">
                   <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
-                  <input class="form-control" name="title" id="exampleInputuname" placeholder="Title" type="text">
+                  <input class="form-control" name="airlines" id="exampleInputuname" placeholder="Airlines" type="text">
                 </div>
                 <br>
                 <div class="card-body">
+                  <p class="text-black">Upload Airlines Logo</p>
                   <label for="input-file-now"></label>
-                  <input type="file" name="photo" id="input-file-now" class="dropify" />
+                  <input type="file" name="airline_logo" id="input-file-now" class="dropify" />
+                </div>
+                <br>
+                  <div style="padding-left : 20px; padding-right : 20px" class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
+                  <input class="form-control" name="dep" placeholder="Departure Date" type="date">
+                </div>
+                <br>
+                <div style="padding-left : 20px; padding-right : 20px" class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
+                  <input class="form-control" name="d_time" placeholder="Departure Time F: hh:mm" type="text">
+                </div>
+                <br>
+                <div style="padding-left : 20px; padding-right : 20px" class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
+                  <input class="form-control" name="d_airport_code" placeholder="Departure Airport Code" type="text">
+                </div>
+                <br>
+                <div style="padding-left : 20px; padding-right : 20px" class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
+                  <input class="form-control" name="a_time" placeholder="Journy Time F: 22H 30M" type="text">
+                </div>
+                <br>
+                <div style="padding-left : 20px; padding-right : 20px" class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
+                  <input class="form-control" name="transit" placeholder="Transit Time F: Transit hh:mm" type="text">
+                </div>
+                <br>
+                <div style="padding-left : 20px; padding-right : 20px" class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
+                  <input class="form-control" name="seat_status" placeholder="Sest Status" type="text">
+                </div>
+                <br>
+                <div style="padding-left : 20px; padding-right : 20px" class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
+                  <input class="form-control" name="from" placeholder="Where From F: Airport_code - Airport_Name, Country" type="text">
+                </div>
+                <br>
+                <div style="padding-left : 20px; padding-right : 20px" class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
+                  <input class="form-control" name="to" placeholder="Where To F: Airport_code - Airport_Name, Country" type="text">
+                </div>
+                <br>
+                <div style="padding-left : 20px; padding-right : 20px" class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
+                  <input class="form-control" name="price" placeholder="Price" type="text">
                 </div>
                 <br>
                 <div class="card-body">
-                  <textarea id="summernote" name="body"></textarea>
+                  <textarea id="summernote" name="details"></textarea>
                 </div>
-                <div class="text-right"><button style="margin-right : 25px; margin-bottom : 20px" class="btn btn-success" name="click" type="submit">POST</button></div>
+                <div class="text-right"><button style="margin-right : 25px; margin-bottom : 20px" class="btn btn-success" name="click" type="submit">UPLOAD</button></div>
               </form>
+            </div>
             </div>
           </div>
         </div>

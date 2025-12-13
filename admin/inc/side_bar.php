@@ -18,13 +18,16 @@
           <ul class="treeview-menu">
             <li><a href="packages.php"><i class="fa fa-angle-right"></i> Packages</a></li>
             <li><a href="ressorts.php"><i class="fa fa-angle-right"></i> Ressorts</a></li>
+            <li><a href="air_ticket.php"><i class="fa fa-angle-right"></i> Air Ticket </a></li>
             <li><a href="gallery.php"><i class="fa fa-angle-right"></i> Gallery</a></li>
-            <li><a href="blogs.php"><i class="fa fa-angle-right"></i> Blogs</a></li>
+            <li><a href="blogs_post.php"><i class="fa fa-angle-right"></i> Blogs</a></li>
           </ul>
         </li>
         <li class="active treeview menu-open"> <a href="#"> <i class="icon-note"></i> <span>List</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
           <ul class="treeview-menu">
             <li><a href="running_packages.php"><i class="fa fa-angle-right"></i> Packages</a></li>
+            <li><a href="air_ticket_list.php"><i class="fa fa-angle-right"></i> Air Ticket</a></li>
+            <li><a href="blog_list.php"><i class="fa fa-angle-right"></i> Blogs</a></li>
           </ul>
         </li>
          

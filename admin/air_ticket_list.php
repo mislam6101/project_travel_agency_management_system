@@ -65,32 +65,32 @@ include_once('db_config.php');
     <div class="content">
       <div class="card">
       <div class="card-body">
-            <h4 class="text-black">Package Table</h4></p>
+            <h4 class="text-black">Flight List</h4></p>
             <div class="table-responsive">
               <table class="table">
                 <thead class="bg-primary text-white">
                   <tr>
-                    <th scope="col">Country</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Time Length</th>
-                    <th scope="col">Cost</th>
-                    <th scope="col">Last Updated Time</th>
+                    <th scope="col">Airlines</th>
+                    <th scope="col">Departure From</th>
+                    <th scope="col">Arrival To</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Price</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php 
-                  $sql = "SELECT * FROM package ORDER BY id DESC";
+                  $sql = "SELECT * FROM air_ticket ORDER BY id DESC";
                   $rawData = $db->query($sql);
                   while($row = $rawData->fetch_object()): 
                   ?>
                   <tr>
-                    <td><?php echo $row->country; ?></td>
-                    <td><?php echo $row->title; ?></td>
-                    <td><?php echo $row->time_length; ?></td>
-                    <td>৳<?php echo $row->price; ?></td>
-                    <td><?php echo $row->created_at; ?></td>
-                    <td><a href="updates_packages.php?id=<?php echo $row->id; ?>"><i class="fa fa-edit"></i></a>&nbsp&nbsp|&nbsp&nbsp<a href="package_delete.php?id=<?php echo $row->id; ?>"><i class="fa fa-trash-o"></i></a></td>
+                    <td><?php echo $row->airlines; ?></td>
+                    <td><?php echo $row->from; ?></td>
+                    <td><?php echo $row->to; ?></td>
+                    <td><?php echo $row->deperture; ?></td>
+                    <td><?php echo $row->price; ?>৳</td>
+                    <td><a href="air_ticket_delete.php?id=<?php echo $row->id; ?>">&nbsp&nbsp&nbsp<i class="fa fa-trash-o"></i></a></td>
                   </tr>
                    <?php 
                   endwhile;

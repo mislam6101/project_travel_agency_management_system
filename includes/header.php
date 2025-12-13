@@ -18,13 +18,13 @@
 
                   <li><a href="tour_packages.php">Tours</a> |</li>
 
-                  <li><a href="about.html">Ressorts</a> |</li>
+                  <li><a href="flights.php">Flights & Cruises</a> |</li>
                   
-                  <li><a href="about.html">Ticketing</a> |</li>
+                  <li><a href="ressorts_users.php">Ressorts</a> |</li>
 
                   <li><a href="about.html">About Us</a> |</li>
                     
-                  <li><a href="about.html">Blogs</a></li>
+                  <li><a href="blogs.php">Blogs</a></li>
                   
                 </ul>
                 <a href="login.php" class="nir-btn px-3 py-1 ms-3">Login / SignUp</a>
