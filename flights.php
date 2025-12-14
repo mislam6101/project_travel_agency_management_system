@@ -120,7 +120,10 @@ session_start();
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="item-inner text-end">
                                             <p class="theme2 fs-4 fw-bold"><?php echo $row->price;?>৳</p>
-                                            <a href="flight-detail.html" class="nir-btn-black">Book</a>
+                                            
+                                            <form action="" method="post">
+                                                <button type="submit" name="book" class="nir-btn-black">book</button>
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
@@ -161,7 +164,24 @@ session_start();
                                 </div>    
                             </div>
                             <?php endwhile;
-                            $db->close()?>
+                            if(isset($_REQUEST['book'])){
+                                if(isset($_SESSION)){
+                                    $sql = "SELECT * FROM air_ticket ORDER BY id DESC";
+                                    $rd = $db->query($sql);
+                                    $row = $rd->fetch_object();
+                                    $c_id = $_SESSION['id'];
+                                    $c_name = $_SESSION['name'];
+                                    $c_email = $_SESSION['email'];
+                                    $c_nid_copy = $_SESSION['nid_copy'];
+                                    $sql_ins = "INSERT INTO air_tick_req VALUES(NULL, '$c_id', '$c_name', '$c_email', '$c_nid_copy', NULL, '$row->from;', '$row->to', '$row->deperture', 'Pendding', NULL)";
+                                    $db->query($sql_ins);
+                                }
+                                else{
+                                    header('Location:login.php');
+                                }
+                            }
+                            $db->close();
+                            ?>
                         </div> 
                         <div class="flight-btn text-center"><a href="flight-grid.html" class="nir-btn">Load More</a></div>
                     </div>
@@ -472,7 +492,7 @@ session_start();
     <script src="js/particles.js"></script>
     <script src="js/particlerun.js"></script>
     <script src="js/plugin.js"></script>
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
     <script src="js/custom-nav.js"></script>
 </body>
 </html>

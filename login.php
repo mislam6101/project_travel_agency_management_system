@@ -63,8 +63,11 @@ session_start();
             $record = $db->query($sql);
             $row = $record->fetch_object();
             if($record->num_rows > 0){
+                $_SESSION['id'] = $row->id;
                 $_SESSION['name'] = $row->name;
                 $_SESSION['email'] = $row->email;
+                $_SESSION['nid'] = $row->nid;
+                $_SESSION['nid_copy'] = $row->nid_copy;
                 //$_SESSION['image'] = $row->image;
 
                 header('Location:index.php');

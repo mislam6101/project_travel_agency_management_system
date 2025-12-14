@@ -1,4 +1,5 @@
-<?php include_once ('admin/db_config.php') ?>
+<?php include_once ('admin/db_config.php');
+session_start(); ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zxx">
   <head>
