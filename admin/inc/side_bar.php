@@ -30,7 +30,7 @@
             <li><a href="blog_list.php"><i class="fa fa-angle-right"></i> Blogs</a></li>
           </ul>
         </li>
-         
+         <li><a href="booking_req.php"> <i class="icon-home"></i> <span>Booking Request</span></a></li>
         </ul>
     </div>
     <!-- /.sidebar --> 

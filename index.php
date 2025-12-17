@@ -502,6 +502,45 @@ session_start(); ?>
         </div>
       </div>
     </section>
+    
+    <!-- testomonial start -->
+    <section class="testimonial pb-0" style="background-image:url(images/testimonial.png)">
+        <div class="container"> 
+            <div class="section-title mb-6 text-center w-75 mx-auto">
+                    <h4 class="mb-1 theme1">Our Testimonails</h4>
+                    <h2 class="mb-1">Good Reviews By <span class="theme">Clients</span></h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                </div>
+            <div class="row align-items-center">
+                <div class="col-lg-7 pe-lg-4">
+                    <div class="row review-slider">
+                      <?php ?>
+                        <div class="col-sm-4 item">
+                            <div class="testimonial-item1 rounded">
+                                <div class="author-info d-flex align-items-center mb-4">
+                                    <a href="#"><img src="images/testimonial/img1.jpg" alt=""></a>
+                                    <div class="author-title ms-3">
+                                        <h5 class="m-0 theme">Jared Erondu</h5>
+                                        <span>Supervisor</span>
+                                    </div>
+                                </div>
+                                <div class="details">
+                                    <p class="m-0"><i class="fa fa-quote-left me-2 fs-1"></i>Lorem Ipsum is simply dummy text of the printing andypesetting industry. Lorem ipsum a simple Lorem Ipsum has been the industry's standard dummy hic et quidem. Dignissimos maxime velit unde inventore quasi vero dolorem.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <?php ?>
+                    </div>
+                </div>
+                <div class="col-lg-5 ps-lg-4">
+                    <div class="testimonial-image">
+                        <img src="images/testi.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- testimonial ends --> 
 
     <!-- Faq starts-->
     <section class="faq-section">

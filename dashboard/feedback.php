@@ -147,76 +147,50 @@ session_start();
 			<!-- navbar Ends -->
 
       <!-- Page Content Starts -->
+
 			<div class="page-content">
 
 				<nav class="page-breadcrumb d-flex align-items-center justify-content-between">
 					<ol class="breadcrumb mb-0">
 						<li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Slider</li>
+						<li class="breadcrumb-item active" aria-current="page">Package</li>
 					</ol>
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addslider"><i class="link-icon" data-feather="plus"></i> Add Slider</button>
+          <a href="events.html" class="btn btn-primary"><i class="link-icon" data-feather="arrow-left"></i> Back To List</a>
 				</nav>
-
-        <div class="search-box p-4 bg-white rounded mb-3 box-shadow">
-          <form class="forms-sample">
-            <div class="row align-items-center">
-              <div class="col-lg-3">
-                <h5>Booked List</h5>
-              </div>
-              <div class="col-lg-6 col-md-4">
-                <input type="text" placeholder="Search by slider title" class="form-control">
-              </div>
-              <div class="col-lg-3 col-md-4">
-                <select class="form-select form-select-lg">
-                  <option selected>Category</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-              </div>
-            </div>
-          </form>
-        </div>
 
 				<div class="row">
 					<div class="col-md-12 grid-margin stretch-card">
-            <div class="card">
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table id="dataTableExample" class="table">
-                    <thead>
-                      <tr>
-                        <th>Catagory</th>
-                        <th>From</th>
-                        <th>To</th>
-                        <th>Date</th>
-                        <th class="text-center">Advance</th>
-                        <th class="text-center">Status</th>
-                        <th class="text-center">Cancel</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      $c_id = $_SESSION['id'];
-                      $sql = "SELECT * FROM air_tick_req WHERE `client_id` = '$c_id' ORDER BY id DESC";
-                      $rawData = $db->query($sql);
-                      while ($row = $rawData->fetch_object()):
-                      ?>
-                      <tr>
-                        <td>travel</td>
-                        <td><?php echo $row->from;?></td>
-                        <td><?php echo $row->to;?></td>
-                        <td><?php echo $row->departure;?></td>
-                        <td class="text-center"><button type="submit" class="btn btn-success">Pay</button></td>
-                        <td class="text-center"><button  class="btn btn-dark" disabled><?php echo $row->status;?></button></td>
-                        <td class="text-center"><button class="btn btn-light">CANCEL</button></td>
-                      </tr>
-                      <?php endwhile; ?>
-                    </tbody>
-                  </table>
-                </div>
+              <div class="card">
+                  <div class="card-body">
+                      <form class="row forms-sample" method="post" enctype="multipart/form-data">
+                        <?php
+                        if(isset($_REQUEST['click'])){
+                          extract($_REQUEST);
+                          $c_name = $_SESSION['name'];
+                          $file_name = $_FILES['photo']['name'];
+                          $tmp_name = $_FILES['photo']['tmp_name'];
+                          $path = "../admin/images/clients_photo/".$file_name;
+                          move_uploaded_file($tmp_name, $path);
+                          $sql = "INSERT INTO client_feedback VALUES(NULL, '$c_name', '$feedback', '$path', NULL, NULL)";
+                          $db->query($sql);
+                          $db->close();
+                        }
+                        ?>
+                          <div>
+                              <label for="upload" class="form-label">Upload Your Image</label>
+                              <input class="form-control" type="file" id="upload" name="photo">
+                          </div>
+                          <div>
+                            <label for="subtitle" class="form-label"> </label>
+                            <input type="text" class="form-control" id="subtitle" autocomplete="off" name="feedback" placeholder="Share your experience">
+                          </div>
+                          <label for="subtitle" class="form-label"> </label>
+                          <div class="text-center">
+                            <button type="submit" name="click" class="btn btn-primary"> Upload Feedback </button>
+                          </div>
+                        </form>
+                  </div>
               </div>
-            </div>
 					</div>
 				</div>
 
@@ -235,7 +209,7 @@ session_start();
         </div>
 
 			</div>
-      <!-- Page Content Ends -->
+			<!-- Page Content Ends -->
 
 			<!-- footer Starts -->
       <footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between px-4 py-3 border-top small">
@@ -246,43 +220,6 @@ session_start();
 	
 		</div>
 	</div>
-
-  <div class="modal fade" id="addslider" tabindex="-1" aria-labelledby="addslider" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header text-center">
-          <h5 class="modal-title" id="exampleModalLabel">Add Slider</h5>
-        </div>
-        <div class="modal-body">
-          <form class="forms-sample">
-            <div class="mb-3">
-              <label for="subtitle" class="form-label"> Slider Sub Title</label>
-              <input type="text" class="form-control" id="subtitle" autocomplete="off" placeholder="">
-            </div>
-            <div class="mb-3">
-              <label for="title" class="form-label">Slider Title</label>
-              <input type="text" class="form-control" id="title" placeholder="">
-            </div>
-            <div class="mb-3">
-              <label for="description" class="form-label">Slider Description</label>
-              <input type="number" class="form-control" id="password" autocomplete="off" placeholder="">
-            </div>
-            <div class="mb-3">
-              <label for="upload" class="form-label">Upload Images</label>
-              <input class="form-control" type="file" id="upload">
-            </div>
-            <div class="mb-3">
-              <label for="title" class="form-label">Slider Button</label>
-              <input type="text" class="form-control" id="title" placeholder="">
-            </div>
-            <div class="text-center">
-              <button type="submit" class="btn btn-primary"><i class="link-icon" data-feather="plus"></i> Create Slider</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
 
 	<!-- core:js -->
   <script src="assets/vendors/core/core.js"></script>

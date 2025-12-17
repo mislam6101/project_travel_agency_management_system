@@ -76,7 +76,7 @@ include_once('db_config.php');
                 if (isset($_REQUEST['click'])) {
                   extract($_REQUEST);
                   $name = $_FILES['photo']['name'];
-                  $tmp_name = $_FILES['photo']['tmp_name'];
+                  echo $tmp_name = $_FILES['photo']['tmp_name'];
                   $path =  "images/ressorts/".$name ;
                   move_uploaded_file($tmp_name, $path);
                   $sql = "INSERT INTO ressorts VALUES (NULL, '$place', '$title', '$details', '$path', '$price', NULL)";
