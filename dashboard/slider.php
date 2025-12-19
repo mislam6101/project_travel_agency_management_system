@@ -207,8 +207,14 @@ session_start();
                         <td><?php echo $row->from;?></td>
                         <td><?php echo $row->to;?></td>
                         <td><?php echo $row->departure;?></td>
-                        <td class="text-center"><button type="submit" class="btn btn-success">Pay</button></td>
-                        <td class="text-center"><button  class="btn btn-dark" disabled><?php echo $row->status;?></button></td>
+                        <td class="text-center"><a href="payment_form.php?id=<?php echo $row->id; ?>"><button type="submit" class="btn btn-success" >Pay</button></a></td>
+                        <td class="text-center"><button  class="<?php if($row->status == "Pendding"){
+                          echo 'btn btn-dark';
+                        } else if($row->status == "Confirmed"){
+                          echo 'btn btn-success';
+                        } else{
+                          echo 'btn btn-danger';
+                        } ?>" disabled><?php echo $row->status;?></button></td>
                         <td class="text-center"><button class="btn btn-light">CANCEL</button></td>
                       </tr>
                       <?php endwhile; ?>

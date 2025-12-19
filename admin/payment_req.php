@@ -65,36 +65,34 @@ include_once('db_config.php');
     <div class="content">
       <div class="card">
       <div class="card-body">
-            <h4 class="text-black">Flight List</h4></p>
+            <h4 class="text-black">Confirm Payment</h4></p>
             <div class="table-responsive">
               <table class="table">
                 <thead class="bg-primary text-white">
                   <tr>
                     <th scope="col">Booking ID</th>
-                    <th scope="col">Client ID</th>
                     <th scope="col">Client Name</th>
                     <th scope="col">NID Copy</th>
-                    <th scope="col">From</th>
-                    <th scope="col">To</th>
-                    <th scope="col">Date</th>
+                    <th scope="col">Passport Copy</th>
+                    <th scope="col">Payment By</th>
+                    <th scope="col">Transiction ID</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php 
-                  $sql = "SELECT * FROM air_tick_req ORDER BY id DESC";
+                  $sql = "SELECT * FROM payment_bookings ORDER BY id DESC";
                   $rawData = $db->query($sql);
                   while($row = $rawData->fetch_object()):
                   ?>
                   <tr>
                     <td><?php echo $row->id; ?></td>
-                    <td><?php echo $row->client_id; ?></td>
                     <td><?php echo $row->client_name; ?></td>
                     <td><?php echo $row->client_nid_copy; ?></td>
-                    <td><?php echo $row->from; ?></td>
-                    <td><?php echo $row->to; ?></td>
-                    <td><?php echo $row->departure; ?></td>
+                    <td><?php echo $row->passport_num; ?></td>
+                    <td><?php echo $row->payMethod; ?></td>
+                    <td><?php echo $row->trans_id; ?></td>
                     <td><?php echo $row->status; ?></td>
                     <td><a href="booking_confirm.php?id=<?php echo $row->id; ?>"><button type="submit" name="click" class="btn btn-primary">Confirm</button></a>
                     </td>

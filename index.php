@@ -43,31 +43,18 @@ session_start(); ?>
       <div class="slider">
         <div class="swiper-container">
           <div class="swiper-wrapper">
+            <?php 
+            $sql7 = "SELECT * FROM gallery";
+            $rawData7 = $db->query($sql7);
+            while($row7 = $rawData7->fetch_object()):
+            ?>
             <div class="swiper-slide">
               <div class="slide-inner">
-                <?php
-                
-                
-                ?>
-                <div class="slide-image" style="background-image: url(images/slider/6.jpg)"></div>
-
+                <div class="slide-image" style="background-image: url(admin/<?php echo $row7->photo; ?>)"></div>
                 <div class="soft-overlay"></div>
               </div>
             </div>
-            <div class="swiper-slide">
-              <div class="slide-inner">
-                <div class="slide-image" style="background-image: url(images/slider/7.jpg)"></div>
-
-                <div class="soft-overlay"></div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="slide-inner">
-                <div class="slide-image" style="background-image: url(images/slider/8.jpg)"></div>
-
-                <div class="soft-overlay"></div>
-              </div>
-            </div>
+          <?php endwhile; ?>
           </div>
         </div>
       </div>
@@ -76,51 +63,11 @@ session_start(); ?>
       <div class="swiper-button-prev"></div>
 
       <div class="banner-content position-absolute">
+        <br>
         <div class="entry-meta mb-0">
-          <!-- <span class="entry-category"><a href="tour-grid.html" class="white"> Travelin</a></span> -->
-        </div>
+          <span class="entry-category"><a href="tour-grid.html" class="white"> Travelars of Destination</a></span>
+        </div><br>
         <h1 class="mb-0"><a href="tour-single.html" class="white">Plan your dream vacation</a></h1>
-        <div class="banner-booking mt-3">
-          <div class="form-content-in d-flex align-items-center justify-content-center gap-3 p-3">
-            <div class="form-group">
-              <div class="input-box">
-                <select class="niceSelect">
-                  <option value="1">Destination</option>
-                  <option value="2">Argentina</option>
-                  <option value="3">Belgium</option>
-                  <option value="4">Canada</option>
-                  <option value="5">Denmark</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-box">
-                <input type="date" name="date" />
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-box">
-                <select class="niceSelect">
-                  <option value="1">Travel Type</option>
-                  <option value="2">City Tour</option>
-                  <option value="3">Family Tour</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-box">
-                <select class="niceSelect">
-                  <option value="1">Tour Duration</option>
-                  <option value="2">5 days</option>
-                  <option value="3">7 Days</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <a href="#" class="nir-btn px-4 py-1 d-flex">Search</a>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
     <!-- banner ends -->
@@ -136,55 +83,21 @@ session_start(); ?>
           <div class="col-lg-12">
             <div class="top-dscp">
               <div class="cards-container">
-                <div class="card" style="background-image: url('images/new-deal/deal2.jpg')">
+                <?php
+                $sql6 = "SELECT * FROM top_destinations";
+                $rawData6 = $db->query($sql6);
+                while($row6 = $rawData6->fetch_object):
+                ?>
+                <div class="card" style="background-image: url('admin/<?php echo $row6->photo; ?>')">
                   <a href="#">
                     <div class="card-content">
-                      <h4>Italy</h4>
-                      <h2>Caspian Valley</h2>
+                      <h4><?php echo $row6->country; ?></h4>
+                      <h2><?php echo $row6->city; ?></h2>
                     </div>
                     <div class="soft-overlay"></div>
                   </a>
                 </div>
-
-                <div class="card" style="background-image: url('images/new-deal/deal0.jpg')">
-                  <a href="#">
-                    <div class="card-content">
-                      <h4>Tokyo</h4>
-                      <h2>Japan</h2>
-                    </div>
-                    <div class="soft-overlay"></div>
-                  </a>
-                </div>
-
-                <div class="card" style="background-image: url('images/new-deal/deal3.jpg')">
-                  <a href="#">
-                    <div class="card-content">
-                      <h4>Moscow</h4>
-                      <h2>Russia</h2>
-                    </div>
-                    <div class="soft-overlay"></div>
-                  </a>
-                </div>
-
-                <div class="card" style="background-image: url('images/new-deal/deal4.jpg')">
-                  <a href="#">
-                    <div class="card-content">
-                      <h4>Florida</h4>
-                      <h2>America</h2>
-                    </div>
-                    <div class="soft-overlay"></div>
-                  </a>
-                </div>
-
-                <div class="card" style="background-image: url('images/new-deal/deal5.jpg')">
-                  <a href="#">
-                    <div class="card-content">
-                      <h4>Paris</h4>
-                      <h2>France</h2>
-                    </div>
-                    <div class="soft-overlay"></div>
-                  </a>
-                </div>
+                <?php endwhile; ?>
               </div>
             </div>
           </div>
@@ -199,33 +112,27 @@ session_start(); ?>
         <!-- why us starts -->
         <div class="row align-items-center">
           <div class="col-lg-6 col-md-12">
+            <?php
+            $sql5 = "SELECT * FROM about_home";
+            $rawData5 = $db->query($sql5);
+            $row5 = $rawData5->fetch_object();
+            ?>
             <div class="about_us__ot d-flex justify-content-center position-relative mb-5 mb-lg-0">
-              <img src="images/ap-1.png" class="ap__icon" alt="" />
-              <img src="images/ap-1.png" class="ap__icon1" alt="" />
-              <img src="images/ap-1.png" class="ap__icon2" alt="" />
-              <img src="images/new-deal/deal12.jpg" class="aa__img1" alt="" />
-              <img src="images/new-deal/deal13.jpg" class="aa__img2" alt="" />
-              <span>25 Years of Experience</span>
+              <img src="admin/<?php echo $row5->fst_photo ; ?>" class="aa__img1" alt="" />
+              <img src="admin/<?php echo $row5->lst_photo ; ?>" class="aa__img2" alt="" />
+              <span><?php echo $row5->experience ; ?> Years of Experience</span>
             </div>
           </div>
           <div class="col-lg-6 col-md-12">
             <div class="d-flex flex-column">
               <h4 class="theme mb-0">About Us</h4>
-              <h2 class="fw-bold">New places & Great opportunity to travel</h2>
+              <h2 class="fw-bold"><?php echo $row5->title ; ?></h2>
 
               <p class="border-b mb-2 pb-2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
+                <?php echo $row5->msg ; ?>
               </p>
-              <div class="about-listing">
-                <ul class="d-flex flex-column justify-content-between gap-3">
-                  <li><i class="fa fa-check-circle theme1 me-2"></i> Capture the magic of travel, wonder, and simplicity.</li>
-                  <li><i class="fa fa-check-circle theme1 me-2"></i> The road less traveled leads to the best stories.</li>
-                  <li><i class="fa fa-check-circle theme1 me-2"></i> Reliable tour package.</li>
-                </ul>
-              </div>
               <div class="mt-4">
-                <a href="#" class="nir-btn">Discover Now</a>
+                <a href="tour_packages.php" class="nir-btn">Discover Now</a>
               </div>
             </div>
           </div>
@@ -247,14 +154,19 @@ session_start(); ?>
           <div class="row">
             <div class="col-lg-12">
               <div class="row item-slider2 slick_arrows">
+                <?php
+                $sql4 = "SELECT * FROM package ORDER BY id DESC";
+                $rawData4 = $db->query($sql4);
+                while ($row4 = $rawData4->fetch_object()):
+                ?>
                 <div class="col-lg-3 col-md-6">
                   <div class="trend-item rounded box-shadow border">
                     <div class="trend-image position-relative m-2 rounded">
-                      <img src="images/trending/trending1.jpg" alt="image" class="" />
+                      <img style="width : 100%; height : 150px" src="admin/<?php echo $row4->package_photo; ?>" alt="image" class="" />
                     </div>
                     <div class="trend-content p-3 position-relative bg-white">
-                      <h6 class="theme mb-1"><i class="flaticon-location-pin"></i> Spain</h6>
-                      <h4 class="mb-1"><a href="grid-leftfilter.html">Explore vibrant Barcelona city </a></h4>
+                      <h6 class="theme mb-1"><i class="flaticon-location-pin"></i><?php echo $row4->country; ?></h6>
+                      <h4 class="mb-1">Explore <?php echo $row4->title; ?></h4>
                       <div class="d-flex align-items-center gap-4 mb-1">
                         <div class="rating-main d-inline-flex align-items-center gap-1 fs-7">
                           <div class="rating">
@@ -265,138 +177,19 @@ session_start(); ?>
                         <div class="px-3 py-1 rounded fs-7">
                           <div class="entry-author">
                             <i class="icon-calendar theme1"></i>
-                            <span class=""> 4 Days Tours</span>
+                            <span class=""> <?php echo $row4->time_length; ?> Tours</span>
                           </div>
                         </div>
                       </div>
                       <div class="entry-meta">
                         <div class="entry-author d-flex align-items-center fs-8">
-                          <p class="mb-0"><span class="theme fw-bold fs-6"> $220.00</span> / Per person</p>
+                          <p class="mb-0"><span class="theme fw-bold fs-6"> <?php echo $row4->price; ?>৳</span> / Per person</p>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                  <div class="trend-item rounded box-shadow border">
-                    <div class="trend-image position-relative m-2 rounded">
-                      <img src="images/trending/trending4.jpg" alt="image" class="" />
-                    </div>
-                    <div class="trend-content p-3 position-relative bg-white">
-                      <h6 class="theme mb-1"><i class="flaticon-location-pin"></i> Italy</h6>
-                      <h4 class="mb-1"><a href="grid-leftfilter.html">Caspian vally in 5 days tour </a></h4>
-                      <div class="d-flex align-items-center gap-4 mb-1">
-                        <div class="rating-main d-inline-flex align-items-center gap-1 fs-7">
-                          <div class="rating">
-                            <span class="fa fa-star checked theme1"></span>
-                          </div>
-                          <span>4.4</span>
-                        </div>
-                        <div class="px-3 py-1 rounded fs-7">
-                          <div class="entry-author">
-                            <i class="icon-calendar theme1"></i>
-                            <span class=""> 5 Days Tours</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="entry-meta">
-                        <div class="entry-author d-flex align-items-center fs-8">
-                          <p class="mb-0"><span class="theme fw-bold fs-6"> $350.00</span> / Per person</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                  <div class="trend-item rounded box-shadow border">
-                    <div class="trend-image position-relative m-2 rounded">
-                      <img src="images/trending/trending7.jpg" alt="image" class="" />
-                    </div>
-                    <div class="trend-content p-3 position-relative bg-white">
-                      <h6 class="theme mb-1"><i class="flaticon-location-pin"></i> USA</h6>
-                      <h4 class="mb-1"><a href="grid-leftfilter.html">Vast offroad tracks of florida </a></h4>
-                      <div class="d-flex align-items-center gap-4 mb-1">
-                        <div class="rating-main d-inline-flex align-items-center gap-1 fs-7">
-                          <div class="rating">
-                            <span class="fa fa-star checked theme1"></span>
-                          </div>
-                          <span>4.1</span>
-                        </div>
-                        <div class="px-3 py-1 rounded fs-7">
-                          <div class="entry-author">
-                            <i class="icon-calendar theme1"></i>
-                            <span class=""> 3 Days Tours</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="entry-meta">
-                        <div class="entry-author d-flex align-items-center fs-8">
-                          <p class="mb-0"><span class="theme fw-bold fs-6"> $180.00</span> / Per person</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                  <div class="trend-item rounded box-shadow border">
-                    <div class="trend-image position-relative m-2 rounded">
-                      <img src="images/trending/trending5.jpg" alt="image" class="" />
-                    </div>
-                    <div class="trend-content p-3 position-relative bg-white">
-                      <h6 class="theme mb-1"><i class="flaticon-location-pin"></i> Maldives</h6>
-                      <h4 class="mb-1"><a href="grid-leftfilter.html">Dip into the beaches of male </a></h4>
-                      <div class="d-flex align-items-center gap-4 mb-1">
-                        <div class="rating-main d-inline-flex align-items-center gap-1 fs-7">
-                          <div class="rating">
-                            <span class="fa fa-star checked theme1"></span>
-                          </div>
-                          <span>4.8</span>
-                        </div>
-                        <div class="px-3 py-1 rounded fs-7">
-                          <div class="entry-author">
-                            <i class="icon-calendar theme1"></i>
-                            <span class=""> 6 Days Tours</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="entry-meta">
-                        <div class="entry-author d-flex align-items-center fs-8">
-                          <p class="mb-0"><span class="theme fw-bold fs-6"> $400.00</span> / Per person</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                  <div class="trend-item rounded box-shadow border">
-                    <div class="trend-image position-relative m-2 rounded">
-                      <img src="images/trending/trending2.jpg" alt="image" class="" />
-                    </div>
-                    <div class="trend-content p-3 position-relative bg-white">
-                      <h6 class="theme mb-1"><i class="flaticon-location-pin"></i> Bali</h6>
-                      <h4 class="mb-1"><a href="grid-leftfilter.html">Explore different waterfalls and lakes </a></h4>
-                      <div class="d-flex align-items-center gap-4 mb-1">
-                        <div class="rating-main d-inline-flex align-items-center gap-1 fs-7">
-                          <div class="rating">
-                            <span class="fa fa-star checked theme1"></span>
-                          </div>
-                          <span>4.3</span>
-                        </div>
-                        <div class="px-3 py-1 rounded fs-7">
-                          <div class="entry-author">
-                            <i class="icon-calendar theme1"></i>
-                            <span class=""> 7 Days Tours</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="entry-meta">
-                        <div class="entry-author d-flex align-items-center fs-8">
-                          <p class="mb-0"><span class="theme fw-bold fs-6"> $400.00</span> / Per person</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <?php endwhile; ?>
               </div>
             </div>
           </div>
@@ -406,39 +199,7 @@ session_start(); ?>
     <!-- Last Minute Deal Ends -->
 
     <!-- Discount action starts -->
-    <section
-      class="discount-action dc__action mx-5 text-center rounded overflow-visible mb-2"
-      style="background-image: url(images/bg/bg2.jpg); background-position: center"
-    >
-      <div class="container">
-        <div class="call-banner">
-          <div class="trend-content px-5 w-90 mx-auto">
-            <div class="w-75 mx-auto mb-4">
-              <h5 class="mb-1 white">Love Where Your're Going</h5>
-              <h2>
-                <a href="tour-single.html" class="white">Adventure awaits you</a>
-              </h2>
-            </div>
-            <div class="video-button position-relative">
-              <div class="call-button my-5 py-2">
-                <button type="button" class="play-btn js-video-button" data-video-id="152879427" data-channel="vimeo">
-                  <i class="fa fa-play"></i>
-                </button>
-              </div>
-              <div class="video-figure"></div>
-            </div>
-            <p class="white mb-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="ctb__bottom">
-        <h2>travel</h2>
-        <img src="images/shape6.png" alt="" />
-      </div>
-      <div class="dot-overlay rounded"></div>
-    </section>
+    
     <!-- Discount action Ends -->
 
 
@@ -514,22 +275,26 @@ session_start(); ?>
             <div class="row align-items-center">
                 <div class="col-lg-7 pe-lg-4">
                     <div class="row review-slider">
-                      <?php ?>
+                      <?php
+                      $sql2 = "SELECT * FROM client_feedback WHERE client_feedback.status = 'Confirmed'";
+                      $rd = $db->query($sql2);
+                      while($row2 = $rd->fetch_object()):
+                      ?>
                         <div class="col-sm-4 item">
                             <div class="testimonial-item1 rounded">
                                 <div class="author-info d-flex align-items-center mb-4">
-                                    <a href="#"><img src="images/testimonial/img1.jpg" alt=""></a>
+                                    <a href="#"><img src="admin/<?php echo $row2->photo; ?>" alt=""></a>
                                     <div class="author-title ms-3">
-                                        <h5 class="m-0 theme">Jared Erondu</h5>
+                                        <h5 class="m-0 theme"><?php echo $row2->name; ?></h5>
                                         <span>Supervisor</span>
                                     </div>
                                 </div>
                                 <div class="details">
-                                    <p class="m-0"><i class="fa fa-quote-left me-2 fs-1"></i>Lorem Ipsum is simply dummy text of the printing andypesetting industry. Lorem ipsum a simple Lorem Ipsum has been the industry's standard dummy hic et quidem. Dignissimos maxime velit unde inventore quasi vero dolorem.</p>
+                                    <p class="m-0"><i class="fa fa-quote-left me-2 fs-1"></i><?php echo $row2->msg; ?></p>
                                 </div>
                             </div>
                         </div>
-                        <?php ?>
+                        <?php endwhile; ?>
                     </div>
                 </div>
                 <div class="col-lg-5 ps-lg-4">
@@ -543,107 +308,7 @@ session_start(); ?>
     <!-- testimonial ends --> 
 
     <!-- Faq starts-->
-    <section class="faq-section">
-      <div class="container">
-        <div class="row align-items-center">
-          <!-- Left Image Section -->
-          <div class="col-lg-6">
-            <div class="d-flex justify-content-end position-relative mb-5 mb-lg-0">
-              <img src="images/destination/destination6.jpg" alt="Hiking Tour" class="img-fluid rounded w-75 me-lg-4" />
-              <div class="tag-card">
-                <strong>Beach Ready Tour</strong><br />
-                <small class="text-muted"><i class="icon-location-pin theme1"></i> Florida, USA</small>
-              </div>
-              <img src="images/new-deal/deal11.jpg" alt="Lake View" class="img-fluid stacked-img" style="width: 200px" />
-            </div>
-          </div>
-
-          <!-- Right FAQ Section -->
-          <div class="col-lg-6">
-            <div class="section-title mb-6">
-              <h5 class="mb-1 theme1"><i class="icon-plane theme1 fs-7"></i> FAQ</h5>
-              <h2 class="mb-1">Your Travel Questions <span class="theme"> Answered</span></h2>
-            </div>
-
-            <div class="accordion faq-accordion" id="travelFaq">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                  <button
-                    class="accordion-button"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseOne"
-                    aria-expanded="true"
-                    aria-controls="collapseOne"
-                  >
-                    What should I pack for my trip?
-                  </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
-                  <div class="accordion-body">
-                    Fusce sed nulla ultricies, viverra lacus euismod, elementum mi. Fusce non dictum lorem. Sed semper dictum sapien sit amet volutpat.
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseTwo"
-                    aria-expanded="false"
-                    aria-controls="collapseTwo"
-                  >
-                    Are there any travel restrictions I should know about?
-                  </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
-                  <div class="accordion-body">Please check local travel guidelines and health requirements before traveling.</div>
-                </div>
-              </div>
-
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseThree"
-                    aria-expanded="false"
-                    aria-controls="collapseThree"
-                  >
-                    How do I change or cancel my booking?
-                  </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
-                  <div class="accordion-body">You can manage bookings through our website or contact our support team for help.</div>
-                </div>
-              </div>
-
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFour">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseFour"
-                    aria-expanded="false"
-                    aria-controls="collapseFour"
-                  >
-                    What types of accommodations are available?
-                  </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour">
-                  <div class="accordion-body">We offer hotels, hostels, lodges, and camping options depending on your destination.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
     <!-- Faq Ends -->
 
     <!-- recent-articles starts -->
@@ -656,18 +321,23 @@ session_start(); ?>
         </div>
         <div class="recent-articles-inner">
           <div class="row blog-slider slick_arrows">
+            <?php
+            $sql3 = "SELECT * FROM blogs ORDER BY id DESC";
+            $rawData3 = $db->query($sql3);
+            while ($row3 = $rawData3->fetch_object()):
+            ?>
             <div class="col-lg-3 col-md-6">
               <div class="trend-item box-shadow bg-white p-2 mb-4 rounded">
                 <div class="trend-image rounded">
-                  <img src="images/trending/trending1.jpg" alt="image" />
+                  <img src="admin/<?php echo $row3->photo; ?>" alt="image" />
                 </div>
                 <div class="trend-content-main p-2">
                   <div class="trend-content">
                     <div class="d-flex justify-content-between align-items-center py-1">
-                      <span class="d-inline-flex align-items-center gap-1 fs-9"> <i class="icon-user theme"></i> By Howard Jacks </span>
-                      <span class="d-inline-flex align-items-center gap-1 fs-9"> <i class="icon-calendar theme"></i> June 12, 2025 </span>
+                      <!-- <span class="d-inline-flex align-items-center gap-1 fs-9"> <i class="icon-user theme"></i> By Howard Jacks </span> -->
+                      <span class="d-inline-flex align-items-center gap-1 fs-9"> <i class="icon-calendar theme"></i><?php echo $row->blog_date; ?> </span>
                     </div>
-                    <h5 class="mb-0"><a href="detail-1.html">Seasonal trends and places to visit.</a></h5>
+                    <h5 class="mb-0"><a href="detail-1.html"><?php echo $row->title; ?></a></h5>
                     <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top border-light">
                       <button class="nir-btn fs-8 px-3 py-1">Read More</button>
                       <span class="d-inline-flex align-items-center theme fs-8 gap-1"><i class="fa fa-comments"></i>0 Comments</span>
@@ -676,90 +346,7 @@ session_start(); ?>
                 </div>
               </div>
             </div>
-
-            <div class="col-lg-3 col-md-6">
-              <div class="trend-item box-shadow bg-white p-2 mb-4 rounded">
-                <div class="trend-image rounded">
-                  <img src="images/trending/trending3.jpg" alt="image" />
-                </div>
-                <div class="trend-content-main p-2">
-                  <div class="trend-content">
-                    <div class="d-flex justify-content-between align-items-center py-1">
-                      <span class="d-inline-flex align-items-center gap-1 fs-9"> <i class="icon-user theme"></i> By Howard Jacks </span>
-                      <span class="d-inline-flex align-items-center gap-1 fs-9"> <i class="icon-calendar theme"></i> June 12, 2025 </span>
-                    </div>
-                    <h5 class="mb-0"><a href="detail-1.html">Inspire Runner with Autism Graces of Women's Running</a></h5>
-                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top border-light">
-                      <button class="nir-btn fs-8 px-3 py-1">Read More</button>
-                      <span class="d-inline-flex align-items-center theme fs-8 gap-1"><i class="fa fa-comments"></i>0 Comments</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-              <div class="trend-item box-shadow bg-white p-2 mb-4 rounded">
-                <div class="trend-image rounded">
-                  <img src="images/trending/trending13.jpg" alt="image" />
-                </div>
-                <div class="trend-content-main p-2">
-                  <div class="trend-content">
-                    <div class="d-flex justify-content-between align-items-center py-1">
-                      <span class="d-inline-flex align-items-center gap-1 fs-9"> <i class="icon-user theme"></i> By Howard Jacks </span>
-                      <span class="d-inline-flex align-items-center gap-1 fs-9"> <i class="icon-calendar theme"></i> June 12, 2025 </span>
-                    </div>
-                    <h5 class="mb-0"><a href="detail-4.html">Services To Grow Your Business Sell Affiliate Products</a></h5>
-                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top border-light">
-                      <button class="nir-btn fs-8 px-3 py-1">Read More</button>
-                      <span class="d-inline-flex align-items-center theme fs-8 gap-1"><i class="fa fa-comments"></i>0 Comments</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-              <div class="trend-item box-shadow bg-white p-2 mb-4 rounded">
-                <div class="trend-image rounded">
-                  <img src="images/trending/trending5.jpg" alt="image" />
-                </div>
-                <div class="trend-content-main p-2">
-                  <div class="trend-content">
-                    <div class="d-flex justify-content-between align-items-center py-1">
-                      <span class="d-inline-flex align-items-center gap-1 fs-9"> <i class="icon-user theme"></i> By Howard Jacks </span>
-                      <span class="d-inline-flex align-items-center gap-1 fs-9"> <i class="icon-calendar theme"></i> June 12, 2025 </span>
-                    </div>
-                    <h5 class="mb-0"><a href="detail-1.html">Inspire Runner with Autism Graces of Women's Running</a></h5>
-                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top border-light">
-                      <button class="nir-btn fs-8 px-3 py-1">Read More</button>
-                      <span class="d-inline-flex align-items-center theme fs-8 gap-1"><i class="fa fa-comments"></i>0 Comments</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-              <div class="trend-item box-shadow bg-white p-2 mb-4 rounded">
-                <div class="trend-image rounded">
-                  <img src="images/trending/trending6.jpg" alt="image" />
-                </div>
-                <div class="trend-content-main p-2">
-                  <div class="trend-content">
-                    <div class="d-flex justify-content-between align-items-center py-1">
-                      <span class="d-inline-flex align-items-center gap-1 fs-9"> <i class="icon-user theme"></i> By Howard Jacks </span>
-                      <span class="d-inline-flex align-items-center gap-1 fs-9"> <i class="icon-calendar theme"></i> June 12, 2025 </span>
-                    </div>
-                    <h5 class="mb-0"><a href="detail-1.html">How to plan your travels to another country</a></h5>
-                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top border-light">
-                      <button class="nir-btn fs-8 px-3 py-1">Read More</button>
-                      <span class="d-inline-flex align-items-center theme fs-8 gap-1"><i class="fa fa-comments"></i>0 Comments</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php endwhile; ?>
           </div>
         </div>
       </div>

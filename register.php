@@ -68,8 +68,11 @@ include_once('admin/db_config.php');
                         $nid_file_name = $_FILES['nid_copy']['name'];
                         $nid_tmp_name = $_FILES['nid_copy']['tmp_name'];
                         $nid_copy_path = "admin/images/clients_nid/" . $nid_file_name;
-                        move_uploaded_file($nid_tmp_name, $nid_copy_path);
-                        $sql = "INSERT INTO clients VALUES (NULL, '$name', '$nid', '$nid_copy_path', '$email', '$password', NULL)";
+                        $photo_name = $_FILES['photo']['name'];
+                        $photo_tmp_name = $_FILES['photo']['tmp_name'];
+                        $photo_path = "admin/images/clients_photo/" . $photo_name;
+                        move_uploaded_file($photo_tmp_name, $photo_path);
+                        $sql = "INSERT INTO clients VALUES (NULL, '$name', '$nid', '$nid_copy_path', '$photo_path', '$email', '$password', NULL)";
                         $db->query($sql);
                         if ($db->affected_rows) {
                             echo '<div class="alert alert-success text-center">Registration Successfull</div>';
@@ -89,8 +92,13 @@ include_once('admin/db_config.php');
                         <div class="form-group mb-2">
                             <input type="text" name="nid" class="form-control" placeholder="NID No.">
                         </div>
+                        <label for="">Nid Photo</label>
                         <div class="form-group mb-2">
                             <input type="file" name="nid_copy" class="form-control">
+                        </div>
+                        <label for="">Profile Photo</label>
+                        <div class="form-group mb-2">
+                            <input type="file" name="photo" class="form-control">
                         </div>
                         <div class="form-group mb-2">
                             <input type="email" name="email" class="form-control" id="email1" placeholder="Email Address">

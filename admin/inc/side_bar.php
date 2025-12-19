@@ -31,6 +31,7 @@
           </ul>
         </li>
          <li><a href="booking_req.php"> <i class="icon-home"></i> <span>Booking Request</span></a></li>
+         <li><a href="payment_req.php"> <i class="icon-home"></i> <span>Confirm Payment</span></a></li>
         </ul>
     </div>
     <!-- /.sidebar --> 
