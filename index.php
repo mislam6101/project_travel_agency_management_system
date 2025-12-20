@@ -86,7 +86,7 @@ session_start(); ?>
                 <?php
                 $sql6 = "SELECT * FROM top_destinations";
                 $rawData6 = $db->query($sql6);
-                while($row6 = $rawData6->fetch_object):
+                while($row6 = $rawData6->fetch_object()):
                 ?>
                 <div class="card" style="background-image: url('admin/<?php echo $row6->photo; ?>')">
                   <a href="#">
