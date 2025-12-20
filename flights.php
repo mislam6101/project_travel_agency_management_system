@@ -180,7 +180,6 @@ session_start();
                                     header('Location:login.php');
                                 }
                             }
-                            $db->close();
                             ?>
                         </div> 
                         <div class="flight-btn text-center"><a href="flight-grid.html" class="nir-btn">Load More</a></div>
@@ -359,7 +358,8 @@ session_start();
     <!-- partner ends -->
 
     <!-- footer starts -->
-    <?php include ("includes/footer.php")?>
+    <?php include ("includes/footer.php");
+    $db->close();?>
     <!-- footer ends -->
     
     <!-- Back to top start -->

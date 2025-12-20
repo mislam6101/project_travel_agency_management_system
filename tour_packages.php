@@ -117,7 +117,6 @@ session_start();
                 </div>
             <?php
             endwhile;
-            $db->close();
             ?>
             <div class="col-lg-12">
                 <div class="text-center">
@@ -161,7 +160,9 @@ session_start();
 
 
 <!-- footer starts -->
-<?php include("includes/footer.php") ?>
+<?php include("includes/footer.php") ;
+$db->close();?>
+
 <!-- footer ends -->
 
 <!-- Back to top start -->

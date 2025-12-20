@@ -101,12 +101,12 @@ include_once('db_config.php');
                   
                   <div style="padding-left : 20px; padding-right : 20px" class="input-group">
                   <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
-                  <input class="form-control" name="time_length" placeholder="Tour Days" type="text" value="">
+                  <input class="form-control" name="time_length" placeholder="Tour Days" type="text" value="<?php echo $row->time_length; ?>">
                 </div>
                 <br>
                 <div style="padding-left : 20px; padding-right : 20px" class="input-group">
                   <div class="input-group-addon"><i class="fa fa-podcast"></i></div>
-                  <input class="form-control" name="price" placeholder="Price" type="text">
+                  <input class="form-control" name="price" value="<?php echo $row->price; ?>" type="text">
                 </div>
                 <br>
                 <div class="card-body">
