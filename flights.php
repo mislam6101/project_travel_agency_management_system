@@ -173,7 +173,7 @@ session_start();
                                     $c_name = $_SESSION['name'];
                                     $c_email = $_SESSION['email'];
                                     $c_nid_copy = $_SESSION['nid_copy'];
-                                    $sql_ins = "INSERT INTO air_tick_req VALUES(NULL, '$c_id', '$c_name', '$c_email', '$c_nid_copy', NULL, '$row->from;', '$row->to', '$row->deperture', 'Pendding', NULL)";
+                                    $sql_ins = "INSERT INTO air_tick_req VALUES(NULL, '$c_id', '$c_name', '$c_email', '$c_nid_copy', NULL, '$row->from;', '$row->to', '$row->deperture', $row->price, 'Pendding', NULL)";
                                     $db->query($sql_ins);
                                 }
                                 else{

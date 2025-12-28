@@ -5,14 +5,15 @@ session_start();
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="Travelin Responsive HTML Admin Dashboard Template based on Bootstrap 5">
-	<meta name="author" content="Travelin">
 
-	<title>Travelin - Travel Tour Booking HTML Templates</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Travelin Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+  <meta name="author" content="Travelin">
+
+  <title>Travelin - Travel Tour Booking HTML Templates</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,99 +21,100 @@ session_start();
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <!-- End fonts -->
 
-	<!-- core:css -->
-	<link rel="stylesheet" href="assets/vendors/core/core.css">
-	<!-- endinject -->
+  <!-- core:css -->
+  <link rel="stylesheet" href="assets/vendors/core/core.css">
+  <!-- endinject -->
 
-	<!-- Plugin css for this page -->
+  <!-- Plugin css for this page -->
   <link rel="stylesheet" href="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
-	<!-- End plugin css for this page -->
+  <!-- End plugin css for this page -->
 
-	<!-- inject:css -->
-	<link rel="stylesheet" href="assets/fonts/feather-font/css/iconfont.css">
-	<!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="assets/fonts/feather-font/css/iconfont.css">
+  <!-- endinject -->
 
-  <!-- Layout styles -->  
-	<link rel="stylesheet" href="assets/css/style.css">
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
   <!-- End layout styles -->
 
   <link rel="shortcut icon" href="../images/favicon.png" />
 </head>
-<body>
-	<div class="main-wrapper">
 
-		<!-- sidebar starts -->
-    <?php include ("sidebar_dashboard.php") ?>
+<body>
+  <div class="main-wrapper">
+
+    <!-- sidebar starts -->
+    <?php include("sidebar_dashboard.php") ?>
     <!-- sidebar Ends -->
-	
-		<div class="page-wrapper">
-					
-			<!-- navbar Starts -->
-			<nav class="navbar">
-				<a href="#" class="sidebar-toggler">
-					<i data-feather="menu"></i>
-				</a>
-				<div class="navbar-content">
-					<form class="search-form w-25">
-						<div class="input-group">
+
+    <div class="page-wrapper">
+
+      <!-- navbar Starts -->
+      <nav class="navbar">
+        <a href="#" class="sidebar-toggler">
+          <i data-feather="menu"></i>
+        </a>
+        <div class="navbar-content">
+          <form class="search-form w-25">
+            <div class="input-group">
               <div class="input-group-text">
                 <i data-feather="search"></i>
               </div>
-							<input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
-						</div>
-					</form>
-					<ul class="navbar-nav">
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<i data-feather="bell"></i>
-								<div class="indicator">
-									<div class="circle"></div>
-								</div>
-							</a>
-							<div class="dropdown-menu p-0" aria-labelledby="notificationDropdown">
-								<div class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
-									<p>6 New Notifications</p>
-									<a class="text-muted">Clear all</a>
-								</div>
+              <input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+            </div>
+          </form>
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i data-feather="bell"></i>
+                <div class="indicator">
+                  <div class="circle"></div>
+                </div>
+              </a>
+              <div class="dropdown-menu p-0" aria-labelledby="notificationDropdown">
+                <div class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
+                  <p>6 New Notifications</p>
+                  <a class="text-muted">Clear all</a>
+                </div>
                 <div class="p-1">
                   <a class="dropdown-item d-flex align-items-center py-2">
                     <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
-											<i class="icon-sm text-white" data-feather="gift"></i>
+                      <i class="icon-sm text-white" data-feather="gift"></i>
                     </div>
                     <div class="flex-grow-1 me-2">
-											<p>New Order Recieved</p>
-											<p class="tx-12 text-muted">30 min ago</p>
-                    </div>	
+                      <p>New Order Recieved</p>
+                      <p class="tx-12 text-muted">30 min ago</p>
+                    </div>
                   </a>
                   <a class="dropdown-item d-flex align-items-center py-2">
                     <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
-											<i class="icon-sm text-white" data-feather="alert-circle"></i>
+                      <i class="icon-sm text-white" data-feather="alert-circle"></i>
                     </div>
                     <div class="flex-grow-1 me-2">
-											<p>Server Limit Reached!</p>
-											<p class="tx-12 text-muted">1 hrs ago</p>
-                    </div>	
+                      <p>Server Limit Reached!</p>
+                      <p class="tx-12 text-muted">1 hrs ago</p>
+                    </div>
                   </a>
                 </div>
-								<div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
-									<a>View all</a>
-								</div>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<img class="wd-30 ht-30 rounded-circle" src="../images/reviewer/1.jpg" alt="profile">
-							</a>
-							<div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
-								<div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
-									<div class="mb-3">
-										<img class="wd-80 ht-80 rounded-circle" src="../images/reviewer/1.jpg" alt="">
-									</div>
-									<div class="text-center">
-										<p class="tx-16 fw-bolder">Nelson Kelly Burton</p>
-										<p class="tx-12 text-muted">nelsonn@gmail.com</p>
-									</div>
-								</div>
+                <div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
+                  <a>View all</a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="wd-30 ht-30 rounded-circle" src="../images/reviewer/1.jpg" alt="profile">
+              </a>
+              <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                  <div class="mb-3">
+                    <img class="wd-80 ht-80 rounded-circle" src="../images/reviewer/1.jpg" alt="">
+                  </div>
+                  <div class="text-center">
+                    <p class="tx-16 fw-bolder">Nelson Kelly Burton</p>
+                    <p class="tx-12 text-muted">nelsonn@gmail.com</p>
+                  </div>
+                </div>
                 <ul class="list-unstyled p-1">
                   <li class="dropdown-item py-2">
                     <a href="profile.html" class="text-body ms-0">
@@ -139,23 +141,23 @@ session_start();
                     </a>
                   </li>
                 </ul>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</nav>
-			<!-- navbar Ends -->
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- navbar Ends -->
 
       <!-- Page Content Starts -->
-			<div class="page-content">
+      <div class="page-content">
 
-				<nav class="page-breadcrumb d-flex align-items-center justify-content-between">
-					<ol class="breadcrumb mb-0">
-						<li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Slider</li>
-					</ol>
+        <nav class="page-breadcrumb d-flex align-items-center justify-content-between">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Slider</li>
+          </ol>
           <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addslider"><i class="link-icon" data-feather="plus"></i> Add Slider</button>
-				</nav>
+        </nav>
 
         <div class="search-box p-4 bg-white rounded mb-3 box-shadow">
           <form class="forms-sample">
@@ -178,8 +180,8 @@ session_start();
           </form>
         </div>
 
-				<div class="row">
-					<div class="col-md-12 grid-margin stretch-card">
+        <div class="row">
+          <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
                 <div class="table-responsive">
@@ -190,6 +192,7 @@ session_start();
                         <th>From</th>
                         <th>To</th>
                         <th>Date</th>
+                        <th>Price</th>
                         <th class="text-center">Advance</th>
                         <th class="text-center">Status</th>
                         <th class="text-center">Cancel</th>
@@ -202,56 +205,57 @@ session_start();
                       $rawData = $db->query($sql);
                       while ($row = $rawData->fetch_object()):
                       ?>
-                      <tr>
-                        <td>travel</td>
-                        <td><?php echo $row->from;?></td>
-                        <td><?php echo $row->to;?></td>
-                        <td><?php echo $row->departure;?></td>
-                        <td class="text-center"><a href="payment_form.php?id=<?php echo $row->id; ?>"><button type="submit" class="btn btn-success" >Pay</button></a></td>
-                        <td class="text-center"><button  class="<?php if($row->status == "Pendding"){
-                          echo 'btn btn-dark';
-                        } else if($row->status == "Confirmed"){
-                          echo 'btn btn-success';
-                        } else{
-                          echo 'btn btn-danger';
-                        } ?>" disabled><?php echo $row->status;?></button></td>
-                        <td class="text-center"><button class="btn btn-light">CANCEL</button></td>
-                      </tr>
+                        <tr>
+                          <td>travel</td>
+                          <td><?php echo $row->from; ?></td>
+                          <td><?php echo $row->to; ?></td>
+                          <td><?php echo $row->departure; ?></td>
+                          <td><?php echo $row->price; ?></td>
+                          <td class="text-center"><a href="payment_ssl/example_hosted.php?id=<?php echo $row->id; ?>"><button type="submit" class="btn btn-success">Pay</button></a></td>
+                          <td class="text-center"><button class="<?php if ($row->status == "Pendding") {
+                                                                    echo 'btn btn-dark';
+                                                                  } else if ($row->status == "Confirmed") {
+                                                                    echo 'btn btn-success';
+                                                                  } else {
+                                                                    echo 'btn btn-danger';
+                                                                  } ?>" disabled><?php echo $row->status; ?></button></td>
+                          <td class="text-center"><button class="btn btn-light">CANCEL</button></td>
+                        </tr>
                       <?php endwhile; ?>
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
-					</div>
-				</div>
+          </div>
+        </div>
 
         <div class="row">
           <div class="dataTables_paginate">
-                <ul class="pagination">
-                  <li class="paginate_button page-item">
-                    <a href="#" class="page-link">Previous</a>
-                  </li>
-                  <li class="paginate_button page-item active"><a href="#" class="page-link">1</a></li>
-                  <li class="paginate_button page-item"><a href="#" class="page-link">2</a></li>
-                  <li class="paginate_button page-item"><a href="#" class="page-link">3</a></li>
-                  <li class="paginate_button page-item"><a href="#" class="page-link">Next</a></li>
-                </ul>
-            </div>
+            <ul class="pagination">
+              <li class="paginate_button page-item">
+                <a href="#" class="page-link">Previous</a>
+              </li>
+              <li class="paginate_button page-item active"><a href="#" class="page-link">1</a></li>
+              <li class="paginate_button page-item"><a href="#" class="page-link">2</a></li>
+              <li class="paginate_button page-item"><a href="#" class="page-link">3</a></li>
+              <li class="paginate_button page-item"><a href="#" class="page-link">Next</a></li>
+            </ul>
+          </div>
         </div>
 
-			</div>
+      </div>
       <!-- Page Content Ends -->
 
-			<!-- footer Starts -->
+      <!-- footer Starts -->
       <footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between px-4 py-3 border-top small">
         <p class="text-muted mb-1 mb-md-0">Copyright © 2022 <a href="../index.html" target="_blank">Travelin</a>.</p>
         <p class="text-muted">Powered By <i class="mb-1 text-primary ms-1 icon-sm" data-feather="heart"></i> Bizberg Themes</p>
       </footer>
       <!-- footer Ends -->
-	
-		</div>
-	</div>
+
+    </div>
+  </div>
 
   <div class="modal fade" id="addslider" tabindex="-1" aria-labelledby="addslider" aria-hidden="true">
     <div class="modal-dialog">
@@ -290,7 +294,7 @@ session_start();
     </div>
   </div>
 
-	<!-- core:js -->
+  <!-- core:js -->
   <script src="assets/vendors/core/core.js"></script>
   <!-- endinject -->
 
@@ -310,4 +314,5 @@ session_start();
   <!-- End custom js for this page -->
 
 </body>
-</html>    
+
+</html>
