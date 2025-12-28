@@ -103,7 +103,7 @@ session_start();
                         </div>
                         <?php
                     endwhile;
-                    $db->close();
+                   
                     ?>
                     </div>
                 </div>
@@ -249,7 +249,8 @@ session_start();
     <!-- top deal ends -->
 
     <!-- footer starts -->
-    <?php include("includes/footer.php") ?>
+    <?php include("includes/footer.php");
+     $db->close(); ?>
     <!-- footer ends -->
     
     <!-- Back to top start -->

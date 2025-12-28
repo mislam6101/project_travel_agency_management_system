@@ -8,51 +8,20 @@
               <h5 class="m-0 rounded"><i class="fab fa-instagram"></i> Follow on Instagram</h5>
             </div>
             <div class="row attract-slider">
+              <?php 
+              $sql8 = "SELECT * FROM footer_photo";
+              $rawData8 = $db->query($sql8);
+              while($row8 = $rawData8->fetch_object()):
+               ?>
               <div class="col-md-3 col-sm-6">
                 <div class="insta-image rounded">
-                  <a href="gallery.html"><img src="images/insta/ins-3.jpg" alt="insta" /></a>
+                  <img style="width:170px; height:140px" src="admin/<?php echo $row8->photo; ?>" alt="insta" />
                 </div>
               </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="insta-image rounded">
-                  <a href="gallery.html"><img src="images/insta/ins-4.jpg" alt="insta" /></a>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="insta-image rounded">
-                  <a href="gallery.html"><img src="images/insta/ins-5.jpg" alt="insta" /></a>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="insta-image rounded">
-                  <a href="gallery.html"><img src="images/insta/ins-1.jpg" alt="insta" /></a>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="insta-image rounded">
-                  <a href="gallery.html"><img src="images/insta/ins-7.jpg" alt="insta" /></a>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="insta-image rounded">
-                  <a href="gallery.html"><img src="images/insta/ins-8.jpg" alt="insta" /></a>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="insta-image rounded">
-                  <a href="gallery.html"><img src="images/insta/ins-2.jpg" alt="insta" /></a>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="insta-image rounded">
-                  <a href="gallery.html"><img src="images/insta/ins-6.jpg" alt="insta" /></a>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="insta-image rounded">
-                  <a href="gallery.html"><img src="images/insta/ins-9.jpg" alt="insta" /></a>
-                </div>
-              </div>
+              <?php 
+              endwhile;
+              $db->close(); 
+              ?>
             </div>
           </div>
         </div>
